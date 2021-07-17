@@ -30,7 +30,7 @@ class Slider extends Component {
 
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.scrollContainer}>
+        {/* <View style={styles.scrollContainer}>
           <ScrollView
             horizontal={true}
             style={styles.scrollViewStyle}
@@ -92,7 +92,7 @@ class Slider extends Component {
               );
             })}
           </View>
-        </View>
+        </View> */}
         <Button
           title="Get Started"
           onPress={() => this.props.navigation.navigate('Register')}

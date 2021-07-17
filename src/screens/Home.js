@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SafeAreaView, ScrollView, Text} from 'react-native';
+import {Image, View, ScrollView, Text} from 'react-native';
 import styles from '../styles/HomeStyle';
 import HomeHeader from '../components/HomeHeader';
 import Button from '../components/Button';
@@ -10,7 +10,22 @@ class Home extends Component {
     return (
       <>
         <HomeHeader title="Home" navigation={this.props.navigation} />
-        <ScrollView></ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false} style={[styles.main]}>
+          <Image
+            style={{height: 200, width: 400}}
+            source={require('../assests/images/swiggyDelivery.jpg')}
+          />
+          <View style={[styles.lastButton]}>
+            <Button
+              title="See all restaurants"
+              onPress={() => this.props.navigation.navigate('Restaurants')}
+            />
+          </View>
+          <Image
+            source={require('../assests/images/swiggyTagline.png')}
+            style={[styles.tagLine]}
+          />
+        </ScrollView>
       </>
     );
   }

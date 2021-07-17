@@ -7,6 +7,7 @@ import Register from './Register';
 import AppNavigator from './AppNavigator';
 import Offers from './Offers';
 import VerifyOTP from './VerifyOTP';
+import Restaurants from './Restaurants';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -50,6 +51,11 @@ class Auth extends Component {
               options={{headerShown: false}}
               name="AppNavigator"
               component={AppNavigator}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="Restaurants"
+              component={Restaurants}
             />
             <Stack.Screen
               options={{headerShown: true}}

@@ -13,8 +13,8 @@ class Cart extends Component {
           style={[styles.emptyCartImage]}
         />
         <Button
-          title="Browse Restaurants"
-          // onPress = {}
+          title="BROWSE RESTAURANTS"
+          onPress={() => this.props.navigation.navigate('Dashboard')}
         />
       </SafeAreaView>
     );

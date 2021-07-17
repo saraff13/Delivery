@@ -28,8 +28,8 @@ class HomeHeader extends Component {
             />
             <Text style={[styles.addressTypeTitle]}>{title}</Text>
           </View>
-          <Text style={[styles.address]}>
-            MW.019.0402, Indu Devi Lane,.....
+          <Text numberOfLines={1} style={[styles.address]}>
+            MW.019.0402, Indu Devi Lane, Brahampura, Muzaffarpur, Bihar
           </Text>
         </TouchableOpacity>
 
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     width: responsiveWidth(70),
     paddingLeft: 5,
+    paddingRight: 5,
   },
   addressType: {
     flexDirection: 'row',

@@ -19,7 +19,7 @@ function* register(action) {
       params: action.payload,
     });
 
-    console.log('Saga response => ', response);
+    // console.log('Saga response => ', response);
 
     yield put({
       type: types.SHOW_TOAST,
@@ -38,7 +38,7 @@ function* register(action) {
       type: types.LOADER_STOP,
     });
   } catch (error) {
-    console.log('Saga error => ', error);
+    // console.log('Saga error => ', error);
 
     yield put({
       type: types.SHOW_TOAST,
