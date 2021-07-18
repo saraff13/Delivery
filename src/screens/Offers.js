@@ -1,14 +1,24 @@
 import React, {Component} from 'react';
-import {SafeAreaView, Text} from 'react-native';
 import {connect} from 'react-redux';
-import styles from '../styles/OffersStyle';
+import MyCoupons from './MyCoupons';
+import RestaurantOffers from './RestaurantOffers';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {responsiveHeight, responsiveWidth} from '../utils/Responsive';
+
+const Tab = createMaterialTopTabNavigator();
 
 class Offers extends Component {
   render() {
     return (
-      <SafeAreaView style={[styles.main]}>
-        <Text>Offers</Text>
-      </SafeAreaView>
+      <Tab.Navigator
+        tabBarOptions={{
+          labelStyle: {fontSize: 13},
+          tabStyle: {width: responsiveWidth(50)},
+          style: {paddingTop: responsiveHeight(3)},
+        }}>
+        <Tab.Screen name="Restaurant Offers" component={RestaurantOffers} />
+        <Tab.Screen name="My Coupons" component={MyCoupons} />
+      </Tab.Navigator>
     );
   }
 }

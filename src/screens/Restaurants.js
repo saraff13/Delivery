@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {FlatList, Image, ScrollView, Text, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  RefreshControl,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {getRestaurants} from '../store/actions/restaurantsAction';
 import styles from '../styles/RestaurantsStyle';
@@ -37,6 +44,12 @@ class Restaurants extends Component {
         onEndReached={() => this.fetchData()}
         onEndReachedThreshold={0.9}
         showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={false}
+            onRefresh={() => this.fetchData(false)}
+          />
+        }
       />
     );
   }
