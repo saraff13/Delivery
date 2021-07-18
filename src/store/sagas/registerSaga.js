@@ -38,7 +38,7 @@ function* register(action) {
       type: types.LOADER_STOP,
     });
   } catch (error) {
-    // console.log('Saga error => ', error);
+    console.log('Saga error => ', error);
 
     yield put({
       type: types.SHOW_TOAST,

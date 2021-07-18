@@ -9,12 +9,13 @@ import {
 import * as Colors from '../utils/Colors';
 import {responsiveWidth, responsiveHeight} from '../utils/Responsive';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {connect} from 'react-redux';
 
 const Icon = MaterialCommunityIcons;
 
 class HomeHeader extends Component {
   render() {
-    const {title = '', navigation} = this.props;
+    const {title = '', navigation, location} = this.props;
     return (
       <SafeAreaView style={[styles.main]}>
         <TouchableOpacity
@@ -29,7 +30,7 @@ class HomeHeader extends Component {
             <Text style={[styles.addressTypeTitle]}>{title}</Text>
           </View>
           <Text numberOfLines={1} style={[styles.address]}>
-            MW.019.0402, Indu Devi Lane, Brahampura, Muzaffarpur, Bihar
+            {location}
           </Text>
         </TouchableOpacity>
 
@@ -48,7 +49,11 @@ class HomeHeader extends Component {
   }
 }
 
-export default HomeHeader;
+const mapStateToProps = state => ({
+  location: state.locationReducer.location,
+});
+
+export default connect(mapStateToProps)(HomeHeader);
 
 const styles = StyleSheet.create({
   main: {
@@ -80,6 +85,7 @@ const styles = StyleSheet.create({
   },
   address: {
     paddingLeft: 5,
+    color: 'dimgrey',
   },
 
   rightHeaderBox: {

@@ -45,7 +45,7 @@ function* getRestaurants(action) {
         type: TOAST_TYPE.FAIL,
       },
     });
-    // console.log('Saga error => ', error);
+    console.log('Saga error => ', error);
     yield put({
       type: types.GET_RESTAURANTS_FAIL,
       payload: error,
