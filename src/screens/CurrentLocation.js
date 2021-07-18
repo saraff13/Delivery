@@ -44,6 +44,7 @@ class CurrentLocation extends Component {
           <Icon name="crosshairs-gps" style={[styles.gpsIcon]} />
           <Text style={[styles.gpsText]}>Use GPS Location</Text>
         </TouchableOpacity>
+        <Text style={{backgroundColor: 'rgba(0,0,0,0.08)'}}></Text>
         <View style={[styles.savedAddresses]}>
           <Text style={[styles.headerTitle]}>SAVED ADDRESSES</Text>
           {location !== 'Not Set Head over to set!' ? (
