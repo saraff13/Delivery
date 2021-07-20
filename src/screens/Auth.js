@@ -8,6 +8,7 @@ import AppNavigator from './AppNavigator';
 import Offers from './Offers';
 import VerifyOTP from './VerifyOTP';
 import Restaurants from './Restaurants';
+import Map from './Map';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -61,6 +62,11 @@ class Auth extends Component {
               options={{headerShown: true}}
               name="CurrentLocation"
               component={CurrentLocation}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="Map"
+              component={Map}
             />
             <Stack.Screen
               options={{headerShown: true, headerTitle: 'OFFERS'}}

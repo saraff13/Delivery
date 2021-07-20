@@ -39,12 +39,23 @@ class CurrentLocation extends Component {
     return (
       <SafeAreaView style={[styles.main]}>
         <TouchableOpacity
-          style={[styles.getLocation]}
+          style={[styles.setLocation]}
           onPress={() => this.getLocation()}>
-          <Icon name="crosshairs-gps" style={[styles.gpsIcon]} />
-          <Text style={[styles.gpsText]}>Use GPS Location</Text>
+          <Text style={[styles.setText]}>SET DELIVERY LOCATION</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.getLocation]}
+          onPress={() => this.props.navigation.navigate('Map')}>
+          <Icon name="crosshairs-gps" style={[styles.gpsIcon]} />
+          <View>
+            <Text style={[styles.gpsText]}>Current Location</Text>
+            <Text style={[styles.usingGPS]}>Using GPS</Text>
+          </View>
+        </TouchableOpacity>
+
         <Text style={{backgroundColor: 'rgba(0,0,0,0.08)'}}></Text>
+
         <View style={[styles.savedAddresses]}>
           <Text style={[styles.headerTitle]}>SAVED ADDRESSES</Text>
           {location !== 'Not Set Head over to set!' ? (

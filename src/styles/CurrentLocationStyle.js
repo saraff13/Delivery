@@ -12,19 +12,33 @@ const styles = StyleSheet.create({
   getLocation: {
     flexDirection: 'row',
     backgroundColor: Colors.WHITE,
-    margin: 20,
-    borderBottomWidth: 0.75,
-    padding: 10,
-    borderBottomColor: 'dimgrey',
+    borderTopWidth: 0.4,
+    padding: 16,
+    borderTopColor: 'dimgrey',
+    alignItems: 'center',
   },
   gpsText: {
     fontSize: 18,
     paddingLeft: 10,
-    color: Colors.BLUE,
+    color: Colors.ORANGE,
+    fontWeight: 'bold',
+  },
+  usingGPS: {
+    fontSize: 13,
+    paddingLeft: 10,
+    color: Colors.ORANGE,
   },
   gpsIcon: {
     fontSize: 25,
-    color: Colors.BLUE,
+    color: Colors.ORANGE,
+  },
+  setLocation: {
+    padding: 20,
+    paddingLeft: 50,
+  },
+  setText: {
+    color: Colors.ORANGE,
+    fontSize: 17,
   },
 
   savedAddresses: {
