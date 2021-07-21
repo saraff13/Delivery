@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
-import {Image, View, ScrollView, Text} from 'react-native';
+import {Image, View, ScrollView, Text, TouchableOpacity} from 'react-native';
 import styles from '../styles/HomeStyle';
-import HomeHeader from '../components/HomeHeader';
+import HomeHeader from '../components/homeComponent/HomeHeader';
 import Button from '../components/Button';
 import {connect} from 'react-redux';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import TopPicks from '../components/homeComponent/TopPicks';
+import PopularCuisines from '../components/homeComponent/PopularCuisines';
+import PopularBrands from '../components/homeComponent/PopularBrands';
+import Spotlight from '../components/homeComponent/Spotlight';
+import Coupons from '../components/homeComponent/Coupons';
+
+const Icon = MaterialCommunityIcons;
 
 class Home extends Component {
   render() {
@@ -11,10 +19,88 @@ class Home extends Component {
       <>
         <HomeHeader title="Home" navigation={this.props.navigation} />
         <ScrollView showsVerticalScrollIndicator={false} style={[styles.main]}>
-          <Image
-            style={{height: 200, width: 400}}
-            source={require('../assests/images/swiggyDelivery.jpg')}
-          />
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Restaurants')}
+            style={[styles.noContactWrap]}>
+            <View style={[styles.noContactBox]}>
+              <Text style={[styles.restaurantsText]}>Restaurants</Text>
+              <Text style={[styles.noContactText]}>
+                No-contact delivery available
+              </Text>
+            </View>
+            <Text style={[styles.viewAllText]}>
+              View all <Icon name="arrow-right" style={[styles.viewAllIcon]} />
+            </Text>
+            <Image
+              style={[styles.noContactImage]}
+              source={require('../assests/images/noContact.jpg')}
+            />
+          </TouchableOpacity>
+
+          <View style={[styles.topPicks]}>
+            <Text style={[styles.topPicksText]}>
+              <Icon name="thumb-up-outline" style={[styles.topPicksIcon]} />
+              &nbsp; Top Picks For You
+            </Text>
+            <TopPicks />
+          </View>
+
+          <View style={{marginBottom: 30}}>
+            <Image
+              style={{height: 200, width: 400}}
+              source={require('../assests/images/swiggyDelivery.jpg')}
+            />
+          </View>
+
+          <View style={[styles.couponsForYou]}>
+            <Text style={[styles.couponsForYouText]}>Coupons for you</Text>
+            <Coupons />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.popularCuisines]}>
+            <Text style={[styles.popularCuisinesText]}>
+              Popular cuisines around you
+            </Text>
+            <PopularCuisines />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.spotlight]}>
+            <View style={[styles.spotlightHeader]}>
+              <Text style={[styles.spotlightText]}>
+                <Icon
+                  name="alarm-light-outline"
+                  style={[styles.spotlightIcon]}
+                />
+                &nbsp; In the Spotlight!
+              </Text>
+              <View style={[styles.seeAllBox]}>
+                <Text style={[styles.seeAllText]}>SEE ALL&nbsp;</Text>
+                <Icon name="chevron-right" style={[styles.seeAllIcon]} />
+              </View>
+            </View>
+
+            <Text style={[styles.spotlightDetail]}>
+              Explore sponsored partner brands
+            </Text>
+            <Spotlight />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.popularBrands]}>
+            <Text style={[styles.popularBrandsText]}>Popular Brands</Text>
+            <Text style={[styles.popularBrandsDetail]}>
+              Most ordered from around your locality
+            </Text>
+            <PopularBrands />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
           <View style={[styles.lastButton]}>
             <Button
               title="See all restaurants"

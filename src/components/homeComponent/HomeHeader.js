@@ -6,8 +6,8 @@ import {
   SafeAreaView,
   View,
 } from 'react-native';
-import * as Colors from '../utils/Colors';
-import {responsiveWidth, responsiveHeight} from '../utils/Responsive';
+import * as Colors from '../../utils/Colors';
+import {responsiveWidth, responsiveHeight} from '../../utils/Responsive';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {connect} from 'react-redux';
 
