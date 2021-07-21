@@ -26,15 +26,16 @@ class Spotlight extends Component {
   };
   render() {
     const {restaurantsData} = this.props;
-    let numberOfColumns =
+    const numberOfColumns =
       ((restaurantsData && restaurantsData.data.length) || 0) / 2;
     return (
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={(restaurantsData && restaurantsData.data) || []}
-          //   keyExtractor={(item, index) => item.id}
-          //   numColumns={numberOfColumns}
+          key={numberOfColumns}
+          keyExtractor={(item, index) => item.id}
+          numColumns={numberOfColumns}
           renderItem={renderItem}
           onEndReached={() => this.fetchData()}
         />
@@ -108,6 +109,7 @@ const renderItem = item => {
 
 const mapStateToProps = state => ({
   restaurantsData: state.restaurantsReducer.data,
+  // numberOfColumns: state.restaurantsReducer.numberOfColumns,
 });
 
 export default connect(mapStateToProps, {getRestaurants})(Spotlight);
@@ -120,6 +122,7 @@ const styles = StyleSheet.create({
     height: responsiveHeight(20),
     // borderWidth: 1,
     marginBottom: responsiveHeight(4),
+    marginRight: responsiveWidth(7),
   },
 
   restaurantProfile: {
