@@ -10,6 +10,8 @@ import PopularCuisines from '../components/homeComponent/PopularCuisines';
 import PopularBrands from '../components/homeComponent/PopularBrands';
 import Spotlight from '../components/homeComponent/Spotlight';
 import Coupons from '../components/homeComponent/Coupons';
+import FreeDelivery from '../components/homeComponent/FreeDelivery';
+import ExpressDelivery from '../components/homeComponent/ExpressDelivery';
 
 const Icon = MaterialCommunityIcons;
 
@@ -75,7 +77,7 @@ class Home extends Component {
                   name="alarm-light-outline"
                   style={[styles.spotlightIcon]}
                 />
-                &nbsp; In the Spotlight!
+                &nbsp;In the Spotlight!
               </Text>
               <View style={[styles.seeAllBox]}>
                 <Text style={[styles.seeAllText]}>SEE ALL&nbsp;</Text>
@@ -97,6 +99,49 @@ class Home extends Component {
               Most ordered from around your locality
             </Text>
             <PopularBrands />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.expressDelivery]}>
+            <View style={[styles.expresseDeliveryHeader]}>
+              <Text style={[styles.expressDeliveryText]}>
+                <Icon
+                  name="lightning-bolt-outline"
+                  style={[styles.expressDeliveryIcon]}
+                />
+                &nbsp;Express Delivery
+              </Text>
+            </View>
+
+            <Text style={[styles.expressDeliveryDetail]}>
+              Lightning fast deliveries in 30 minutes or less.
+            </Text>
+            <Text style={[styles.termsAndConditions]}>{`T&C Apply.`}</Text>
+            <ExpressDelivery />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.freeDelivery]}>
+            <View style={[styles.freeDeliveryHeader]}>
+              <Text style={[styles.freeDeliveryText]}>
+                <Icon
+                  name="brightness-percent"
+                  style={[styles.freeDeliveryIcon]}
+                />
+                &nbsp;Free Delivery
+              </Text>
+              <View style={[styles.seeAllBox]}>
+                <Text style={[styles.seeAllText]}>SEE ALL&nbsp;</Text>
+                <Icon name="chevron-right" style={[styles.seeAllIcon]} />
+              </View>
+            </View>
+
+            <Text style={[styles.freeDeliveryDetail]}>
+              Delicious Tastes, Delivered Free.
+            </Text>
+            <FreeDelivery />
           </View>
 
           <Text style={[styles.seperators]} />

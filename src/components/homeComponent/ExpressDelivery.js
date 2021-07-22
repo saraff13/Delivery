@@ -15,7 +15,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const Icon = MaterialCommunityIcons;
 
-class Spotlight extends Component {
+class ExpressDelivery extends Component {
   componentDidMount() {
     this.fetchData(false);
   }
@@ -132,7 +132,7 @@ const mapStateToProps = state => ({
   restaurantsData: state.restaurantsReducer.data,
 });
 
-export default connect(mapStateToProps, {getRestaurants})(Spotlight);
+export default connect(mapStateToProps, {getRestaurants})(ExpressDelivery);
 
 const styles = StyleSheet.create({
   eachRestaurant: {

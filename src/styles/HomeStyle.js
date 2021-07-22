@@ -161,6 +161,56 @@ const styles = StyleSheet.create({
     color: 'dimgrey',
     marginBottom: responsiveHeight(3),
   },
+
+  freeDelivery: {
+    // borderWidth: 1,
+    height: responsiveHeight(58),
+    marginTop: responsiveHeight(3),
+  },
+  freeDeliveryHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  freeDeliveryText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  freeDeliveryIcon: {
+    fontSize: 20,
+    color: Colors.ORANGE,
+  },
+  freeDeliveryDetail: {
+    fontSize: 16,
+    color: 'dimgrey',
+    marginBottom: responsiveHeight(3),
+  },
+
+  expressDelivery: {
+    // borderWidth: 1,
+    height: responsiveHeight(60),
+    marginTop: responsiveHeight(3),
+  },
+  expresseDeliveryHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  expressDeliveryText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  expressDeliveryIcon: {
+    fontSize: 20,
+    color: Colors.ORANGE,
+  },
+  expressDeliveryDetail: {
+    fontSize: 16,
+    color: 'dimgrey',
+  },
+  termsAndConditions: {
+    marginBottom: responsiveHeight(3),
+    fontSize: 16,
+    color: 'dimgrey',
+  },
 });
 
 export default styles;
