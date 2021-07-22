@@ -60,11 +60,12 @@ export default connect(mapStateToProps, {getRestaurants})(Coupons);
 
 const styles = StyleSheet.create({
   eachCoupon: {
-    marginRight: responsiveWidth(6),
+    marginRight: responsiveWidth(2),
     // borderWidth: 1,
   },
   couponImage: {
-    width: responsiveHeight(14),
-    height: responsiveHeight(18),
+    width: responsiveHeight(19),
+    height: responsiveHeight(22),
+    borderRadius: 10,
   },
 });

@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
 
   couponsForYou: {
     // borderWidth: 1,
-    height: responsiveHeight(25),
+    height: responsiveHeight(30),
     marginBottom: responsiveHeight(4),
     marginTop: responsiveHeight(3),
   },
