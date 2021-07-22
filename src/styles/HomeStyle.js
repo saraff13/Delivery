@@ -8,14 +8,6 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingBottom: 0,
   },
-  tagLine: {
-    // borderWidth: 1,
-    width: responsiveWidth(100),
-    height: responsiveHeight(65),
-  },
-  lastButton: {
-    alignItems: 'center',
-  },
 
   noContactWrap: {
     // borderWidth: 1,
@@ -88,6 +80,12 @@ const styles = StyleSheet.create({
   },
 
   seperators: {
+    backgroundColor: 'rgba(0,0,0,0.04)',
+    height: 10,
+    width: responsiveWidth(100),
+  },
+  specialSeperator: {
+    marginTop: responsiveHeight(4),
     backgroundColor: 'rgba(0,0,0,0.04)',
     height: 10,
     width: responsiveWidth(100),
@@ -210,6 +208,36 @@ const styles = StyleSheet.create({
     marginBottom: responsiveHeight(3),
     fontSize: 16,
     color: 'dimgrey',
+  },
+
+  promotedRestaurants: {
+    marginTop: responsiveHeight(3),
+  },
+  promotedRestaurantsText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+
+  nearByRestaurants: {
+    marginTop: responsiveHeight(3),
+  },
+  nearByRestaurantsText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  nearByRestaurantsDetail: {
+    fontSize: 16,
+    color: 'dimgrey',
+  },
+
+  button: {
+    alignItems: 'center',
+    marginVertical: responsiveHeight(2),
+  },
+
+  tagLineImage: {
+    width: responsiveWidth(100),
+    height: responsiveHeight(65),
   },
 });
 

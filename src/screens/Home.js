@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Image, View, ScrollView, Text, TouchableOpacity} from 'react-native';
 import styles from '../styles/HomeStyle';
 import HomeHeader from '../components/homeComponent/HomeHeader';
-import Button from '../components/Button';
+import Button from '../components/homeComponent/Button';
 import {connect} from 'react-redux';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TopPicks from '../components/homeComponent/TopPicks';
@@ -12,6 +12,8 @@ import Spotlight from '../components/homeComponent/Spotlight';
 import Coupons from '../components/homeComponent/Coupons';
 import FreeDelivery from '../components/homeComponent/FreeDelivery';
 import ExpressDelivery from '../components/homeComponent/ExpressDelivery';
+import PromotedRestaurants from '../components/homeComponent/PromotedRestaurants';
+import NearByRestaurants from '../components/homeComponent/NearByRestaurants';
 
 const Icon = MaterialCommunityIcons;
 
@@ -146,7 +148,30 @@ class Home extends Component {
 
           <Text style={[styles.seperators]} />
 
-          <View style={[styles.lastButton]}>
+          <View style={[styles.promotedRestaurants]}>
+            <Text style={[styles.promotedRestaurantsText]}>
+              Promoted Restaurants
+            </Text>
+
+            <PromotedRestaurants />
+          </View>
+
+          <Text style={[styles.specialSeperator]} />
+
+          <View style={[styles.nearByRestaurants]}>
+            <Text style={[styles.nearByRestaurantsText]}>
+              All Restaurants Nearby
+            </Text>
+            <Text style={[styles.nearByRestaurantsDetail]}>
+              Discover unique tastes near you
+            </Text>
+
+            <NearByRestaurants />
+          </View>
+
+          <Text style={[styles.specialSeperator]} />
+
+          <View style={[styles.button]}>
             <Button
               title="See all restaurants"
               onPress={() => this.props.navigation.navigate('Restaurants')}
@@ -154,7 +179,7 @@ class Home extends Component {
           </View>
           <Image
             source={require('../assests/images/swiggyTagline.png')}
-            style={[styles.tagLine]}
+            style={[styles.tagLineImage]}
           />
         </ScrollView>
       </>
