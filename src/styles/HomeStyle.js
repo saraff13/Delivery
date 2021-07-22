@@ -123,8 +123,7 @@ const styles = StyleSheet.create({
 
   spotlight: {
     // borderWidth: 1,
-    height: responsiveHeight(55),
-    marginBottom: responsiveHeight(3),
+    height: responsiveHeight(58),
     marginTop: responsiveHeight(3),
   },
   spotlightHeader: {

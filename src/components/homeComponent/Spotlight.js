@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
     height: responsiveHeight(20),
     // borderWidth: 1,
-    marginBottom: responsiveHeight(4),
+    marginBottom: responsiveHeight(3),
     marginRight: responsiveWidth(7),
   },
 
