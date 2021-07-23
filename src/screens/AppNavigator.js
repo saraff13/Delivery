@@ -24,13 +24,13 @@ export default class AppNavigator extends Component {
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
 
-            if (route.name === 'Dashboard') {
+            if (route.name === 'SWIGGY') {
               iconName = focused ? 'home' : 'home-outline';
-            } else if (route.name === 'Search') {
+            } else if (route.name === 'SEARCH') {
               iconName = focused ? 'magnify' : 'magnify';
-            } else if (route.name === 'Cart') {
+            } else if (route.name === 'CART') {
               iconName = focused ? 'shopping' : 'shopping-outline';
-            } else if (route.name === 'My Account') {
+            } else if (route.name === 'ACCOUNT') {
               iconName = focused ? 'account' : 'account-outline';
             }
 
@@ -39,13 +39,13 @@ export default class AppNavigator extends Component {
           },
         })}
         tabBarOptions={customTabBarStyle}>
-        <Tab.Screen name="Dashboard" component={Home} />
+        <Tab.Screen name="SWIGGY" component={Home} />
 
-        <Tab.Screen name="Search" component={Search} />
+        <Tab.Screen name="SEARCH" component={Search} />
 
-        <Tab.Screen name="Cart" component={Cart} options={{tabBarBadge: 0}} />
+        <Tab.Screen name="CART" component={Cart} options={{tabBarBadge: 0}} />
 
-        <Tab.Screen name="My Account" component={Profile} />
+        <Tab.Screen name="ACCOUNT" component={Profile} />
       </Tab.Navigator>
     );
   }

@@ -14,7 +14,7 @@ class Cart extends Component {
         />
         <Button
           title="BROWSE RESTAURANTS"
-          onPress={() => this.props.navigation.navigate('Dashboard')}
+          onPress={() => this.props.navigation.navigate('SWIGGY')}
         />
       </SafeAreaView>
     );
