@@ -5,8 +5,6 @@ import {responsiveHeight, responsiveWidth} from '../utils/Responsive';
 const styles = StyleSheet.create({
   main: {
     backgroundColor: Colors.WHITE,
-    padding: 15,
-    paddingBottom: 0,
   },
 
   noContactWrap: {
@@ -15,6 +13,8 @@ const styles = StyleSheet.create({
     height: responsiveHeight(18),
     borderRadius: 10,
     marginBottom: responsiveHeight(5),
+    marginHorizontal: 15,
+    marginTop: 5,
   },
   noContactBox: {
     // borderWidth: 1,
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     height: responsiveHeight(28),
     marginBottom: responsiveHeight(5),
+    marginHorizontal: 15,
   },
   topPicksText: {
     fontSize: 20,
@@ -67,11 +68,17 @@ const styles = StyleSheet.create({
     color: Colors.ORANGE,
   },
 
+  imageSlider: {
+    marginBottom: responsiveHeight(5),
+    marginHorizontal: 15,
+  },
+
   couponsForYou: {
     // borderWidth: 1,
     height: responsiveHeight(30),
     marginBottom: responsiveHeight(4),
     marginTop: responsiveHeight(3),
+    marginHorizontal: 15,
   },
   couponsForYouText: {
     fontSize: 20,
@@ -96,6 +103,7 @@ const styles = StyleSheet.create({
     height: responsiveHeight(24),
     marginBottom: responsiveHeight(3),
     marginTop: responsiveHeight(3),
+    marginHorizontal: 15,
   },
   popularCuisinesText: {
     fontSize: 20,
@@ -108,6 +116,7 @@ const styles = StyleSheet.create({
     height: responsiveHeight(33),
     marginBottom: responsiveHeight(3),
     marginTop: responsiveHeight(3),
+    marginHorizontal: 15,
   },
   popularBrandsText: {
     fontSize: 20,
@@ -123,6 +132,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     height: responsiveHeight(58),
     marginTop: responsiveHeight(3),
+    marginHorizontal: 15,
   },
   spotlightHeader: {
     flexDirection: 'row',
@@ -164,6 +174,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     height: responsiveHeight(58),
     marginTop: responsiveHeight(3),
+    marginHorizontal: 15,
   },
   freeDeliveryHeader: {
     flexDirection: 'row',
@@ -187,6 +198,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     height: responsiveHeight(60),
     marginTop: responsiveHeight(3),
+    marginHorizontal: 15,
   },
   expresseDeliveryHeader: {
     flexDirection: 'row',
@@ -212,6 +224,7 @@ const styles = StyleSheet.create({
 
   promotedRestaurants: {
     marginTop: responsiveHeight(3),
+    marginHorizontal: 15,
   },
   promotedRestaurantsText: {
     fontSize: 20,
@@ -220,6 +233,7 @@ const styles = StyleSheet.create({
 
   nearByRestaurants: {
     marginTop: responsiveHeight(3),
+    marginHorizontal: 15,
   },
   nearByRestaurantsText: {
     fontSize: 20,

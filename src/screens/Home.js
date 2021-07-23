@@ -49,7 +49,7 @@ class Home extends Component {
             <TopPicks />
           </View>
 
-          <View style={{marginBottom: 30}}>
+          <View style={[styles.imageSlider]}>
             <Image
               style={{height: 200, width: 400}}
               source={require('../assests/images/swiggyDelivery.jpg')}
