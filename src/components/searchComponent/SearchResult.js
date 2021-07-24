@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {responsiveHeight, responsiveWidth} from '../utils/Responsive';
+import {responsiveHeight, responsiveWidth} from '../../utils/Responsive';
 
 export default class Item extends Component {
   render() {
@@ -9,7 +9,7 @@ export default class Item extends Component {
       <View style={[styles.container]}>
         <Image
           style={[styles.itemImage]}
-          source={require('../assests/images/SwiggyLogo.jpg')}
+          source={require('../../assests/images/SwiggyLogo.jpg')}
         />
         <View style={[styles.textBox]}>
           <Text style={[styles.itemName]}>{listItem.name}</Text>

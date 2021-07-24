@@ -10,7 +10,7 @@ import {
 import {connect} from 'react-redux';
 import PopularCuisines from '../components/homeComponent/PopularCuisines';
 import styles from '../styles/SearchStyle';
-import Item from './SearchResult';
+import Item from '../components/searchComponent/SearchResult';
 import {list} from '../utils/SearchData';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
