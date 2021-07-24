@@ -10,9 +10,21 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
   },
   emptyCartImage: {
-    borderWidth: 1,
+    // borderWidth: 1,
     width: responsiveWidth(100),
     height: responsiveWidth(100),
+  },
+  browseButton: {
+    borderWidth: 2,
+    borderColor: Colors.ORANGE,
+    width: responsiveWidth(50),
+  },
+  browseButtonText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    padding: 10,
+    color: Colors.ORANGE,
+    textAlign: 'center',
   },
 });
 

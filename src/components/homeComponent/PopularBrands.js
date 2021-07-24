@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import * as Colors from '../../utils/Colors';
 import {connect} from 'react-redux';
 import {getRestaurants} from '../../store/actions/restaurantsAction';
@@ -49,7 +56,7 @@ const renderItem = item => {
     timeMinutes = '34 mins',
   } = item.item;
   return (
-    <View style={[styles.eachBrand]}>
+    <TouchableOpacity style={[styles.eachBrand]}>
       <View style={[styles.brandImageWrap]}>
         <Image source={{uri: brandImage}} style={[styles.brandImage]} />
       </View>
@@ -58,7 +65,7 @@ const renderItem = item => {
         {brandName}
       </Text>
       <Text style={[styles.willTakeTime]}>{timeMinutes}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

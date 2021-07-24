@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'tomato',
-    width: responsiveWidth(85),
+    width: responsiveWidth(90),
     borderRadius: 2,
     padding: 15,
     marginVertical: responsiveHeight(1),

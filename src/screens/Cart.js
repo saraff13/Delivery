@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Image, SafeAreaView, Text} from 'react-native';
+import {Image, SafeAreaView, Text, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
-import Button from '../components/Button';
 import styles from '../styles/CartStyle';
 
 class Cart extends Component {
@@ -12,15 +11,14 @@ class Cart extends Component {
           source={require('../assests/images/swiggyCart.png')}
           style={[styles.emptyCartImage]}
         />
-        <Button
-          title="BROWSE RESTAURANTS"
-          onPress={() => this.props.navigation.navigate('SWIGGY')}
-        />
+        <TouchableOpacity
+          style={[styles.browseButton]}
+          onPress={() => this.props.navigation.navigate('SWIGGY')}>
+          <Text style={[styles.browseButtonText]}>BROWSE RESTAURANTS</Text>
+        </TouchableOpacity>
       </SafeAreaView>
     );
   }
 }
-
-// export default Profile;
 
 export default connect(null)(Cart);

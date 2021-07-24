@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Slider from './Slider';
 import Login from './Login';
 import CurrentLocation from './CurrentLocation';
 import Register from './Register';
@@ -76,11 +75,6 @@ class Auth extends Component {
           </Stack.Navigator>
         ) : (
           <Stack.Navigator>
-            <Stack.Screen
-              options={{headerShown: false}}
-              name="Slider"
-              component={Slider}
-            />
             <Stack.Screen
               options={{headerShown: false}}
               name="Login"

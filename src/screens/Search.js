@@ -80,10 +80,10 @@ class Search extends Component {
                   <Text style={[styles.recentlySearchedText]}>Paneer</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => this.setState({search: 'McDonald'})}
+                  onPress={() => this.setState({search: 'Chicken'})}
                   style={[styles.recentlySearchedBox]}>
                   <Icon name="magnify" style={[styles.searchIcon]} />
-                  <Text style={[styles.recentlySearchedText]}>McDonald</Text>
+                  <Text style={[styles.recentlySearchedText]}>Chicken</Text>
                 </TouchableOpacity>
               </View>
 

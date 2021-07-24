@@ -81,10 +81,10 @@ class Home extends Component {
                 />
                 &nbsp;In the Spotlight!
               </Text>
-              <View style={[styles.seeAllBox]}>
+              <TouchableOpacity style={[styles.seeAllBox]}>
                 <Text style={[styles.seeAllText]}>SEE ALL&nbsp;</Text>
                 <Icon name="chevron-right" style={[styles.seeAllIcon]} />
-              </View>
+              </TouchableOpacity>
             </View>
 
             <Text style={[styles.spotlightDetail]}>
@@ -134,10 +134,10 @@ class Home extends Component {
                 />
                 &nbsp;Free Delivery
               </Text>
-              <View style={[styles.seeAllBox]}>
+              <TouchableOpacity style={[styles.seeAllBox]}>
                 <Text style={[styles.seeAllText]}>SEE ALL&nbsp;</Text>
                 <Icon name="chevron-right" style={[styles.seeAllIcon]} />
-              </View>
+              </TouchableOpacity>
             </View>
 
             <Text style={[styles.freeDeliveryDetail]}>

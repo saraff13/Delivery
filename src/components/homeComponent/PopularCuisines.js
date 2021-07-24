@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import * as Colors from '../../utils/Colors';
 import {connect} from 'react-redux';
 import {getRestaurants} from '../../store/actions/restaurantsAction';
@@ -48,10 +54,10 @@ const renderItem = item => {
     cuisineName = `${first_name} ${last_name}`,
   } = item.item;
   return (
-    <View style={[styles.eachCuisine]}>
+    <TouchableOpacity style={[styles.eachCuisine]}>
       <Image source={{uri: cuisineImage}} style={[styles.cuisineImage]} />
       <Text style={[styles.cuisineName]}>{cuisineName}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

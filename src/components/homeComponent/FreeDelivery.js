@@ -6,6 +6,7 @@ import {
   Text,
   View,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import * as Colors from '../../utils/Colors';
 import {connect} from 'react-redux';
@@ -74,7 +75,7 @@ const renderItem = item => {
     maxDiscount = '50% OFF',
   } = item.item;
   return (
-    <View style={[styles.eachRestaurant]}>
+    <TouchableOpacity style={[styles.eachRestaurant]}>
       <View style={[styles.restaurantProfile]}>
         <Image
           source={{uri: RestaurantImage}}
@@ -124,7 +125,7 @@ const renderItem = item => {
           &nbsp;Use {coupon}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

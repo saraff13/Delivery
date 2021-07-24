@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {getRestaurants} from '../../store/actions/restaurantsAction';
 import {responsiveHeight, responsiveWidth} from '../../utils/Responsive';
@@ -46,9 +46,9 @@ const renderItem = item => {
     couponImage = avatar,
   } = item.item;
   return (
-    <View style={[styles.eachCoupon]}>
+    <TouchableOpacity style={[styles.eachCoupon]}>
       <Image source={{uri: couponImage}} style={[styles.couponImage]} />
-    </View>
+    </TouchableOpacity>
   );
 };
 
