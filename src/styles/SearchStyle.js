@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
   },
 
   searchBox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     borderWidth: 1,
     borderColor: 'lightgrey',
     borderRadius: 2,
@@ -21,12 +24,26 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     padding: 15,
+    // borderWidth: 1,
+    width: responsiveWidth(82),
+  },
+  crossIcon: {
+    // borderWidth: 1,
+    fontSize: 24,
+    marginRight: 15,
+  },
+
+  searchResultScroller: {
+    flex: 1,
+    marginVertical: responsiveHeight(4),
+    marginBottom: 0,
   },
 
   recentSearches: {
     // borderWidth: 1,
-    width: responsiveWidth(90),
-    paddingVertical: 20,
+    marginHorizontal: 15,
+    paddingLeft: responsiveWidth(2),
+    width: responsiveWidth(91),
   },
   recentSearchesHeader: {
     flexDirection: 'row',
@@ -71,6 +88,7 @@ const styles = StyleSheet.create({
     marginBottom: responsiveHeight(3),
     marginTop: responsiveHeight(3),
     marginHorizontal: 15,
+    paddingLeft: responsiveWidth(2),
   },
   popularCuisinesText: {
     fontSize: 20,

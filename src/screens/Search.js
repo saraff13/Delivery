@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {
   SafeAreaView,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -9,57 +10,94 @@ import {
 import {connect} from 'react-redux';
 import PopularCuisines from '../components/homeComponent/PopularCuisines';
 import styles from '../styles/SearchStyle';
+import Item from './SearchResult';
+import {list} from '../utils/SearchData';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Icon = MaterialCommunityIcons;
 
 class Search extends Component {
   state = {
-    searchText: '',
+    search: '',
   };
+
+  filterList() {
+    return list.filter(listItem =>
+      listItem.name.toLowerCase().includes(this.state.search.toLowerCase()),
+    );
+  }
+
   render() {
-    const {searchText} = this.state;
+    const {search} = this.state;
     return (
       <SafeAreaView style={[styles.main]}>
         <View style={[styles.searchBox]}>
           <TextInput
             placeholder="Search for restaurants and food"
-            value={searchText}
-            onChangeText={value => this.setState({searchText: value})}
+            value={search}
+            onChangeText={value => this.setState({search: value})}
             style={[styles.searchInput]}
+            numberOfLines={1}
           />
+          {search ? (
+            <Icon
+              onPress={() => this.setState({search: ''})}
+              name="close"
+              style={[styles.crossIcon]}
+            />
+          ) : (
+            <View />
+          )}
         </View>
 
-        <View style={[styles.recentSearches]}>
-          <View style={[styles.recentSearchesHeader]}>
-            <Text style={[styles.headerTitle]}>Recent Searches</Text>
-            <TouchableOpacity>
-              <Text style={[styles.headerShowMoreText]}>SHOW MORE</Text>
-            </TouchableOpacity>
-          </View>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={[styles.searchResultScroller]}>
+          {search ? (
+            this.filterList().map((listItem, index) => (
+              <Item key={index} listItem={listItem} />
+            ))
+          ) : (
+            <>
+              <View style={[styles.recentSearches]}>
+                <View style={[styles.recentSearchesHeader]}>
+                  <Text style={[styles.headerTitle]}>Recent Searches</Text>
+                  <TouchableOpacity>
+                    <Text style={[styles.headerShowMoreText]}>SHOW MORE</Text>
+                  </TouchableOpacity>
+                </View>
 
-          <TouchableOpacity style={[styles.recentlySearchedBox]}>
-            <Icon name="magnify" style={[styles.searchIcon]} />
-            <Text style={[styles.recentlySearchedText]}>Pizza Hut</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.recentlySearchedBox]}>
-            <Icon name="magnify" style={[styles.searchIcon]} />
-            <Text style={[styles.recentlySearchedText]}>Barbeque Nation</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.recentlySearchedBox]}>
-            <Icon name="magnify" style={[styles.searchIcon]} />
-            <Text style={[styles.recentlySearchedText]}>McDonald</Text>
-          </TouchableOpacity>
-        </View>
+                <TouchableOpacity
+                  onPress={() => this.setState({search: 'Pizza Hut'})}
+                  style={[styles.recentlySearchedBox]}>
+                  <Icon name="magnify" style={[styles.searchIcon]} />
+                  <Text style={[styles.recentlySearchedText]}>Pizza Hut</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => this.setState({search: 'Paneer'})}
+                  style={[styles.recentlySearchedBox]}>
+                  <Icon name="magnify" style={[styles.searchIcon]} />
+                  <Text style={[styles.recentlySearchedText]}>Paneer</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => this.setState({search: 'McDonald'})}
+                  style={[styles.recentlySearchedBox]}>
+                  <Icon name="magnify" style={[styles.searchIcon]} />
+                  <Text style={[styles.recentlySearchedText]}>McDonald</Text>
+                </TouchableOpacity>
+              </View>
 
-        <View style={[styles.popularCuisines]}>
-          <Text style={[styles.popularCuisinesText]}>
-            Popular cuisines around you
-          </Text>
-          <PopularCuisines />
-        </View>
+              <View style={[styles.popularCuisines]}>
+                <Text style={[styles.popularCuisinesText]}>
+                  Popular cuisines around you
+                </Text>
+                <PopularCuisines />
+              </View>
 
-        <Text style={[styles.seperators]} />
+              <Text style={[styles.seperators]} />
+            </>
+          )}
+        </ScrollView>
       </SafeAreaView>
     );
   }
