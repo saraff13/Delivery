@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {SafeAreaView, Text} from 'react-native';
 import {connect} from 'react-redux';
-import styles from '../styles/RestaurantOffersStyle';
+import styles from '../../styles/RestaurantOffersStyle';
 
 class RestaurantOffers extends Component {
   render() {
@@ -12,7 +12,5 @@ class RestaurantOffers extends Component {
     );
   }
 }
-
-// export default Profile;
 
 export default connect(null)(RestaurantOffers);

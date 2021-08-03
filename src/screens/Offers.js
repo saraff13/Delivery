@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import MyCoupons from './MyCoupons';
-import RestaurantOffers from './RestaurantOffers';
+import MyCoupons from '../components/offersComponent/MyCoupons';
+import RestaurantOffers from '../components/offersComponent/RestaurantOffers';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {responsiveHeight, responsiveWidth} from '../utils/Responsive';
 

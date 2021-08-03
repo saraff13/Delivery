@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {SafeAreaView, Text} from 'react-native';
 import {connect} from 'react-redux';
-import styles from '../styles/MyCouponsStyle';
+import styles from '../../styles/MyCouponsStyle';
 
 class MyCoupons extends Component {
   render() {
@@ -12,7 +12,5 @@ class MyCoupons extends Component {
     );
   }
 }
-
-// export default Profile;
 
 export default connect(null)(MyCoupons);
