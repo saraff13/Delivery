@@ -13,6 +13,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setLoginData} from '../store/actions/loginAction';
 import Loader from '../components/Loader';
+import RestaurantDetails from '../components/RestaurantDetails';
 
 const Stack = createStackNavigator();
 
@@ -56,6 +57,11 @@ class Auth extends Component {
               options={{headerShown: true}}
               name="Restaurants"
               component={Restaurants}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="RestaurantDetails"
+              component={RestaurantDetails}
             />
             <Stack.Screen
               options={{headerShown: true}}

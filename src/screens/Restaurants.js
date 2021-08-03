@@ -5,6 +5,7 @@ import {
   RefreshControl,
   ScrollView,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {connect} from 'react-redux';
@@ -38,7 +39,16 @@ class Restaurants extends Component {
     return (
       <FlatList
         data={(restaurantsData && restaurantsData.data) || []}
-        renderItem={eachRestaurant}
+        renderItem={({item}) => {
+          return (
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate('RestaurantDetails', {item})
+              }>
+              <EachRestaurant item={item} />
+            </TouchableOpacity>
+          );
+        }}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={ListFooter}
         onEndReached={() => this.fetchData()}
@@ -55,7 +65,7 @@ class Restaurants extends Component {
   }
 }
 
-const eachRestaurant = item => {
+const EachRestaurant = item => {
   // console.log(item.item);
   const {
     // getting from reqres api
