@@ -14,6 +14,7 @@ import FreeDelivery from '../components/homeComponent/FreeDelivery';
 import ExpressDelivery from '../components/homeComponent/ExpressDelivery';
 import PromotedRestaurants from '../components/homeComponent/PromotedRestaurants';
 import NearByRestaurants from '../components/homeComponent/NearByRestaurants';
+import ImageSlider from '../components/homeComponent/ImageSlider';
 
 const Icon = MaterialCommunityIcons;
 
@@ -49,12 +50,7 @@ class Home extends Component {
             <TopPicks />
           </View>
 
-          <View style={[styles.imageSlider]}>
-            <Image
-              style={{height: 200, width: 400}}
-              source={require('../assests/images/swiggyDelivery.jpg')}
-            />
-          </View>
+          <ImageSlider />
 
           <View style={[styles.couponsForYou]}>
             <Text style={[styles.couponsForYouText]}>Coupons for you</Text>
