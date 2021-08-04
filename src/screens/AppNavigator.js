@@ -8,6 +8,9 @@ import Cart from './Cart';
 import RestaurantDetails from '../components/homeComponent/navigatingPages/RestaurantDetails';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TopPicks from '../components/homeComponent/TopPicks';
+import CuisinesRestaurants from '../components/homeComponent/navigatingPages/CuisinesRestaurants';
+import CouponsRestaurants from '../components/homeComponent/navigatingPages/CouponsRestaurants';
+import ImageSlidersRestaurants from '../components/homeComponent/navigatingPages/ImageSlidersRestaurants';
 
 const Icon = MaterialCommunityIcons;
 const Tab = createBottomTabNavigator();
@@ -62,6 +65,21 @@ const HomeStack = () => {
         name="Home"
         component={Home}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CuisinesRestaurants"
+        component={CuisinesRestaurants}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="CouponsRestaurants"
+        component={CouponsRestaurants}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="ImageSlidersRestaurants"
+        component={ImageSlidersRestaurants}
+        options={{headerShown: true}}
       />
       <Stack.Screen
         name="RestaurantDetails"

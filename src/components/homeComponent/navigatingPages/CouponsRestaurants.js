@@ -3,7 +3,7 @@ import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import {connect} from 'react-redux';
 import * as Colors from '../../../utils/Colors';
 
-class RestaurantDetails extends Component {
+class CouponsRestaurants extends Component {
   render() {
     // console.log(this.props.route.params.item);
     const {avatar, email, first_name, last_name, id} =
@@ -17,7 +17,7 @@ class RestaurantDetails extends Component {
   }
 }
 
-export default connect(null)(RestaurantDetails);
+export default connect(null)(CouponsRestaurants);
 
 const styles = StyleSheet.create({
   main: {

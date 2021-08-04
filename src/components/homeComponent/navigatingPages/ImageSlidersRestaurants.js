@@ -3,21 +3,19 @@ import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import {connect} from 'react-redux';
 import * as Colors from '../../../utils/Colors';
 
-class RestaurantDetails extends Component {
+class ImageSlidersRestaurants extends Component {
   render() {
-    // console.log(this.props.route.params.item);
-    const {avatar, email, first_name, last_name, id} =
-      this.props.route.params.item;
+    // console.log(this.props.route.params);
+    const {index} = this.props.route.params;
     return (
       <SafeAreaView style={[styles.main]}>
-        <Text>ID: {id}</Text>
-        <Text>Email: {email}</Text>
+        <Text>Image Index: {index}</Text>
       </SafeAreaView>
     );
   }
 }
 
-export default connect(null)(RestaurantDetails);
+export default connect(null)(ImageSlidersRestaurants);
 
 const styles = StyleSheet.create({
   main: {

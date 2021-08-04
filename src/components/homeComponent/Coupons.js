@@ -35,8 +35,7 @@ class Coupons extends Component {
         renderItem={({item}) => {
           return (
             <TouchableOpacity
-            // onPress={() => navigation.navigate('RestaurantDetails', {item})}
-            >
+              onPress={() => navigation.navigate('CouponsRestaurants', {item})}>
               <RenderItem item={item} />
             </TouchableOpacity>
           );

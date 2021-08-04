@@ -37,8 +37,9 @@ class PopularCuisines extends Component {
         renderItem={({item}) => {
           return (
             <TouchableOpacity
-            // onPress={() => navigation.navigate('RestaurantDetails', {item})}
-            >
+              onPress={() =>
+                navigation.navigate('CuisinesRestaurants', {item})
+              }>
               <RenderItem item={item} />
             </TouchableOpacity>
           );

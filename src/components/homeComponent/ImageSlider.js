@@ -6,6 +6,7 @@ import {
   Animated,
   Dimensions,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {responsiveHeight, responsiveWidth} from '../../utils/Responsive';
@@ -57,26 +58,52 @@ class ImageSlider extends Component {
             {useNativeDriver: false},
           )}
           scrollEventThrottle={1}>
-          <Image
-            style={[styles.eachImage]}
-            source={require('../../assests/images/swiggy0.jpg')}
-          />
-          <Image
-            style={[styles.eachImage]}
-            source={require('../../assests/images/swiggy1.jpg')}
-          />
-          <Image
-            style={[styles.eachImage]}
-            source={require('../../assests/images/swiggy2.jpg')}
-          />
-          <Image
-            style={[styles.eachImage]}
-            source={require('../../assests/images/swiggy5.jpg')}
-          />
-          <Image
-            style={[styles.eachImage]}
-            source={require('../../assests/images/swiggy0.jpg')}
-          />
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('ImageSlidersRestaurants', {index: 0})
+            }>
+            <Image
+              style={[styles.eachImage]}
+              source={require('../../assests/images/swiggy0.jpg')}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('ImageSlidersRestaurants', {index: 1})
+            }>
+            <Image
+              style={[styles.eachImage]}
+              source={require('../../assests/images/swiggy1.jpg')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('ImageSlidersRestaurants', {index: 2})
+            }>
+            <Image
+              style={[styles.eachImage]}
+              source={require('../../assests/images/swiggy2.jpg')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('ImageSlidersRestaurants', {index: 5})
+            }>
+            <Image
+              style={[styles.eachImage]}
+              source={require('../../assests/images/swiggy5.jpg')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('ImageSlidersRestaurants', {index: 0})
+            }>
+            <Image
+              style={[styles.eachImage]}
+              source={require('../../assests/images/swiggy0.jpg')}
+            />
+          </TouchableOpacity>
         </ScrollView>
         <View style={styles.indicatorContainer}>
           {images.map((image, imageIndex) => {
