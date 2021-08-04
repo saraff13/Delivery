@@ -28,20 +28,27 @@ class PopularBrands extends Component {
     if (pageNo <= brandsData.total_pages) getRestaurants({data, pageNo});
   };
   render() {
-    const {brandsData} = this.props;
+    const {brandsData, navigation} = this.props;
     return (
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
         data={(brandsData && brandsData.data) || []}
-        renderItem={renderItem}
+        renderItem={({item}) => {
+          return (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('RestaurantDetails', {item})}>
+              <RenderItem item={item} />
+            </TouchableOpacity>
+          );
+        }}
         onEndReached={() => this.fetchData()}
       />
     );
   }
 }
 
-const renderItem = item => {
+const RenderItem = item => {
   const {
     // getting from reqres api
     avatar,
@@ -56,7 +63,7 @@ const renderItem = item => {
     timeMinutes = '34 mins',
   } = item.item;
   return (
-    <TouchableOpacity style={[styles.eachBrand]}>
+    <View style={[styles.eachBrand]}>
       <View style={[styles.brandImageWrap]}>
         <Image source={{uri: brandImage}} style={[styles.brandImage]} />
       </View>
@@ -65,7 +72,7 @@ const renderItem = item => {
         {brandName}
       </Text>
       <Text style={[styles.willTakeTime]}>{timeMinutes}</Text>
-    </TouchableOpacity>
+    </View>
   );
 };
 

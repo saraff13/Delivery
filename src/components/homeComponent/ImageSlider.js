@@ -35,6 +35,7 @@ class ImageSlider extends Component {
   }
 
   render() {
+    const {navigation} = this.props;
     const windowWidth = this.state.dimensions.window.width;
 
     return (

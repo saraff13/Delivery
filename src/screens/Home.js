@@ -50,12 +50,12 @@ class Home extends Component {
             <TopPicks navigation={this.props.navigation} />
           </View>
           <View style={[styles.imageSlider]}>
-            <ImageSlider />
+            <ImageSlider navigation={this.props.navigation} />
           </View>
 
           <View style={[styles.couponsForYou]}>
             <Text style={[styles.couponsForYouText]}>Coupons for you</Text>
-            <Coupons />
+            <Coupons navigation={this.props.navigation} />
           </View>
 
           <Text style={[styles.seperators]} />
@@ -64,7 +64,7 @@ class Home extends Component {
             <Text style={[styles.popularCuisinesText]}>
               Popular cuisines around you
             </Text>
-            <PopularCuisines />
+            <PopularCuisines navigation={this.props.navigation} />
           </View>
 
           <Text style={[styles.seperators]} />
@@ -97,7 +97,7 @@ class Home extends Component {
             <Text style={[styles.popularBrandsDetail]}>
               Most ordered from around your locality
             </Text>
-            <PopularBrands />
+            <PopularBrands navigation={this.props.navigation} />
           </View>
 
           <Text style={[styles.seperators]} />

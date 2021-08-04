@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import * as Colors from '../../utils/Colors';
 import {connect} from 'react-redux';
@@ -27,20 +28,28 @@ class PopularCuisines extends Component {
     if (pageNo <= cuisinesData.total_pages) getRestaurants({data, pageNo});
   };
   render() {
-    const {cuisinesData} = this.props;
+    const {cuisinesData, navigation} = this.props;
     return (
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
         data={(cuisinesData && cuisinesData.data) || []}
-        renderItem={renderItem}
+        renderItem={({item}) => {
+          return (
+            <TouchableOpacity
+            // onPress={() => navigation.navigate('RestaurantDetails', {item})}
+            >
+              <RenderItem item={item} />
+            </TouchableOpacity>
+          );
+        }}
         onEndReached={() => this.fetchData()}
       />
     );
   }
 }
 
-const renderItem = item => {
+const RenderItem = item => {
   const {
     // getting from reqres api
     avatar,
@@ -54,10 +63,10 @@ const renderItem = item => {
     cuisineName = `${first_name} ${last_name}`,
   } = item.item;
   return (
-    <TouchableOpacity style={[styles.eachCuisine]}>
+    <View style={[styles.eachCuisine]}>
       <Image source={{uri: cuisineImage}} style={[styles.cuisineImage]} />
       <Text style={[styles.cuisineName]}>{cuisineName}</Text>
-    </TouchableOpacity>
+    </View>
   );
 };
 

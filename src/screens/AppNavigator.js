@@ -5,7 +5,7 @@ import Home from './Home';
 import Profile from './Profile';
 import Search from './Search';
 import Cart from './Cart';
-import RestaurantDetails from '../components/RestaurantDetails';
+import RestaurantDetails from '../components/homeComponent/navigatingPages/RestaurantDetails';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import TopPicks from '../components/homeComponent/TopPicks';
 

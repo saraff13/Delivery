@@ -13,7 +13,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setLoginData} from '../store/actions/loginAction';
 import Loader from '../components/Loader';
-import RestaurantDetails from '../components/RestaurantDetails';
+import RestaurantDetails from '../components/homeComponent/navigatingPages/RestaurantDetails';
 
 const Stack = createStackNavigator();
 

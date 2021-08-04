@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {getRestaurants} from '../../store/actions/restaurantsAction';
 import {responsiveHeight, responsiveWidth} from '../../utils/Responsive';
@@ -20,20 +26,28 @@ class Coupons extends Component {
     if (pageNo <= couponsData.total_pages) getRestaurants({data, pageNo});
   };
   render() {
-    const {couponsData} = this.props;
+    const {couponsData, navigation} = this.props;
     return (
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
         data={(couponsData && couponsData.data) || []}
-        renderItem={renderItem}
+        renderItem={({item}) => {
+          return (
+            <TouchableOpacity
+            // onPress={() => navigation.navigate('RestaurantDetails', {item})}
+            >
+              <RenderItem item={item} />
+            </TouchableOpacity>
+          );
+        }}
         onEndReached={() => this.fetchData()}
       />
     );
   }
 }
 
-const renderItem = item => {
+const RenderItem = item => {
   const {
     // getting from reqres api
     avatar,
@@ -46,9 +60,9 @@ const renderItem = item => {
     couponImage = avatar,
   } = item.item;
   return (
-    <TouchableOpacity style={[styles.eachCoupon]}>
+    <View style={[styles.eachCoupon]}>
       <Image source={{uri: couponImage}} style={[styles.couponImage]} />
-    </TouchableOpacity>
+    </View>
   );
 };
 
