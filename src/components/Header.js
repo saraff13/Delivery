@@ -52,7 +52,7 @@ class Header extends Component {
                 <TouchableOpacity
                   style={[styles.backToHome]}
                   onPress={() => navigation.goBack()}>
-                  <Icon name="arrow-left" size={30} color="black" />
+                  <Icon name="arrow-left" size={27} color="black" />
                   <Text style={[styles.headerTitle]}>{title}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
