@@ -12,7 +12,11 @@ class Offers extends Component {
   render() {
     return (
       <>
-        <Header title="OFFERS" showOnlyBackIcon />
+        <Header
+          title="OFFERS"
+          navigation={this.props.navigation}
+          showOnlyBackIcon
+        />
         <Tab.Navigator
           tabBarOptions={{
             labelStyle: {fontSize: 13},
