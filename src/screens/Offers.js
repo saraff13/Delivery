@@ -21,7 +21,9 @@ class Offers extends Component {
           tabBarOptions={{
             labelStyle: {fontSize: 13},
             tabStyle: {width: responsiveWidth(50)},
-            style: {paddingTop: responsiveHeight(3)},
+            style: {},
+            indicatorStyle: {borderBottomWidth: 2},
+            activeTintColor: 'black',
           }}>
           <Tab.Screen name="Restaurant Offers" component={RestaurantOffers} />
           <Tab.Screen name="My Coupons" component={MyCoupons} />
