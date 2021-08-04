@@ -166,8 +166,6 @@ class Home extends Component {
             <NearByRestaurants navigation={this.props.navigation} />
           </View>
 
-          <Text style={[styles.specialSeperator]} />
-
           <View style={[styles.button]}>
             <Button
               title="See all restaurants"
