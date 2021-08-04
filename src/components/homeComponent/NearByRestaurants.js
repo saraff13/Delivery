@@ -34,13 +34,22 @@ class NearByRestaurants extends Component {
     if (pageNo <= restaurantsData.total_pages) getRestaurants({data, pageNo});
   };
   render() {
-    const {restaurantsData} = this.props;
+    const {restaurantsData, navigation} = this.props;
     return (
       <SafeAreaView style={{flex: 1}}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={(restaurantsData && restaurantsData.data) || []}
-          renderItem={renderItem}
+          renderItem={({item}) => {
+            return (
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('RestaurantDetails', {item})
+                }>
+                <RenderItem item={item} />
+              </TouchableOpacity>
+            );
+          }}
           onEndReached={() => this.fetchData()}
         />
       </SafeAreaView>
@@ -48,7 +57,7 @@ class NearByRestaurants extends Component {
   }
 }
 
-const renderItem = item => {
+const RenderItem = item => {
   // console.log(item.item);
   const {
     // getting from reqres api
@@ -72,7 +81,7 @@ const renderItem = item => {
     maxDiscount = '50% OFF',
   } = item.item;
   return (
-    <TouchableOpacity style={[styles.eachRestaurant]}>
+    <View style={[styles.eachRestaurant]}>
       <View style={[styles.restaurantProfile]}>
         <Image
           source={{uri: RestaurantImage}}
@@ -122,7 +131,7 @@ const renderItem = item => {
           &nbsp;Use {coupon}
         </Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import Home from './Home';
 import Profile from './Profile';
 import Search from './Search';
 import Cart from './Cart';
+import RestaurantDetails from '../components/RestaurantDetails';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import TopPicks from '../components/homeComponent/TopPicks';
 
 const Icon = MaterialCommunityIcons;
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default class AppNavigator extends Component {
   render() {
@@ -39,7 +43,7 @@ export default class AppNavigator extends Component {
           },
         })}
         tabBarOptions={customTabBarStyle}>
-        <Tab.Screen name="SWIGGY" component={Home} />
+        <Tab.Screen name="SWIGGY" component={HomeStack} />
 
         <Tab.Screen name="SEARCH" component={Search} />
 
@@ -50,3 +54,20 @@ export default class AppNavigator extends Component {
     );
   }
 }
+
+const HomeStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="RestaurantDetails"
+        component={RestaurantDetails}
+        options={{headerShown: true}}
+      />
+    </Stack.Navigator>
+  );
+};

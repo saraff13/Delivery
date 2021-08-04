@@ -32,7 +32,7 @@ class ExpressDelivery extends Component {
     if (pageNo <= restaurantsData.total_pages) getRestaurants({data, pageNo});
   };
   render() {
-    const {restaurantsData} = this.props;
+    const {restaurantsData, navigation} = this.props;
     const numberOfColumns =
       ((restaurantsData && restaurantsData.data.length) || 0) / 2;
     return (
@@ -43,7 +43,16 @@ class ExpressDelivery extends Component {
           key={numberOfColumns}
           keyExtractor={(item, index) => item.id}
           numColumns={numberOfColumns}
-          renderItem={renderItem}
+          renderItem={({item}) => {
+            return (
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('RestaurantDetails', {item})
+                }>
+                <RenderItem item={item} />
+              </TouchableOpacity>
+            );
+          }}
           onEndReached={() => this.fetchData()}
         />
       </ScrollView>
@@ -51,7 +60,7 @@ class ExpressDelivery extends Component {
   }
 }
 
-const renderItem = item => {
+const RenderItem = item => {
   // console.log(item.item);
   const {
     // getting from reqres api
@@ -75,7 +84,7 @@ const renderItem = item => {
     maxDiscount = '50% OFF',
   } = item.item;
   return (
-    <TouchableOpacity style={[styles.eachRestaurant]}>
+    <View style={[styles.eachRestaurant]}>
       <View style={[styles.restaurantProfile]}>
         <Image
           source={{uri: RestaurantImage}}
@@ -125,7 +134,7 @@ const renderItem = item => {
           &nbsp;Use {coupon}
         </Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

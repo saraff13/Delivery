@@ -47,7 +47,7 @@ class Home extends Component {
               <Icon name="thumb-up-outline" style={[styles.topPicksIcon]} />
               &nbsp; Top Picks For You
             </Text>
-            <TopPicks />
+            <TopPicks navigation={this.props.navigation} />
           </View>
           <View style={[styles.imageSlider]}>
             <ImageSlider />
@@ -87,7 +87,7 @@ class Home extends Component {
             <Text style={[styles.spotlightDetail]}>
               Explore sponsored partner brands
             </Text>
-            <Spotlight />
+            <Spotlight navigation={this.props.navigation} />
           </View>
 
           <Text style={[styles.seperators]} />
@@ -117,7 +117,7 @@ class Home extends Component {
               Lightning fast deliveries in 30 minutes or less.
             </Text>
             <Text style={[styles.termsAndConditions]}>{`T&C Apply.`}</Text>
-            <ExpressDelivery />
+            <ExpressDelivery navigation={this.props.navigation} />
           </View>
 
           <Text style={[styles.seperators]} />
@@ -140,7 +140,7 @@ class Home extends Component {
             <Text style={[styles.freeDeliveryDetail]}>
               Delicious Tastes, Delivered Free.
             </Text>
-            <FreeDelivery />
+            <FreeDelivery navigation={this.props.navigation} />
           </View>
 
           <Text style={[styles.seperators]} />
@@ -150,7 +150,7 @@ class Home extends Component {
               Promoted Restaurants
             </Text>
 
-            <PromotedRestaurants />
+            <PromotedRestaurants navigation={this.props.navigation} />
           </View>
 
           <Text style={[styles.specialSeperator]} />
@@ -163,7 +163,7 @@ class Home extends Component {
               Discover unique tastes near you
             </Text>
 
-            <NearByRestaurants />
+            <NearByRestaurants navigation={this.props.navigation} />
           </View>
 
           <Text style={[styles.specialSeperator]} />

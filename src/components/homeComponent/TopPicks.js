@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import * as Colors from '../../utils/Colors';
 import {connect} from 'react-redux';
@@ -27,20 +28,27 @@ class TopPicks extends Component {
     if (pageNo <= restaurantsData.total_pages) getRestaurants({data, pageNo});
   };
   render() {
-    const {restaurantsData} = this.props;
+    const {restaurantsData, navigation} = this.props;
     return (
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
         data={(restaurantsData && restaurantsData.data) || []}
-        renderItem={renderItem}
+        renderItem={({item}) => {
+          return (
+            <TouchableOpacity
+              onPress={() => navigation.navigate('RestaurantDetails', {item})}>
+              <RenderItem item={item} />
+            </TouchableOpacity>
+          );
+        }}
         onEndReached={() => this.fetchData()}
       />
     );
   }
 }
 
-const renderItem = item => {
+const RenderItem = item => {
   const {
     // getting from reqres api
     avatar,
@@ -56,14 +64,14 @@ const renderItem = item => {
     maxDiscount = '50% OFF',
   } = item.item;
   return (
-    <TouchableOpacity style={[styles.eachRestaurant]}>
+    <View style={[styles.eachRestaurant]}>
       <Image source={{uri: restaurantImage}} style={[styles.restaurantImage]} />
       <Text numberOfLines={2} style={[styles.restaurantName]}>
         {restaurantName}
       </Text>
       <Text style={[styles.willTakeTime]}>{timeMinutes}</Text>
       <Text style={[styles.maxDiscount]}>{maxDiscount}</Text>
-    </TouchableOpacity>
+    </View>
   );
 };
 
