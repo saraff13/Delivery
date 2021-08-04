@@ -97,6 +97,15 @@ class ImageSlider extends Component {
               outputRange: [8, 12, 8],
               extrapolate: 'clamp',
             });
+            const bgColor = this.scrollX.interpolate({
+              inputRange: [
+                windowWidth * (imageIndex - 1),
+                windowWidth * imageIndex,
+                windowWidth * (imageIndex + 1),
+              ],
+              outputRange: ['lightgrey', 'darkorange', 'lightgrey'],
+              extrapolate: 'clamp',
+            });
             return (
               <Animated.View
                 key={imageIndex}
@@ -105,6 +114,7 @@ class ImageSlider extends Component {
                   {
                     width,
                     height,
+                    backgroundColor: bgColor,
                   },
                 ]}
               />
@@ -141,10 +151,10 @@ const styles = StyleSheet.create({
   },
   indicatorContainer: {
     // borderWidth: 1,
+    height: 15,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: responsiveHeight(2),
-    marginBottom: responsiveHeight(3),
   },
 });

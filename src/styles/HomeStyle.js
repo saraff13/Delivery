@@ -69,8 +69,10 @@ const styles = StyleSheet.create({
   },
 
   imageSlider: {
-    marginBottom: responsiveHeight(5),
-    marginHorizontal: 15,
+    // borderWidth: 1,
+    height: responsiveHeight(37),
+    marginBottom: responsiveHeight(3),
+    // marginHorizontal: 15,
   },
 
   couponsForYou: {

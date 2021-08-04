@@ -49,8 +49,9 @@ class Home extends Component {
             </Text>
             <TopPicks />
           </View>
-
-          <ImageSlider />
+          <View style={[styles.imageSlider]}>
+            <ImageSlider />
+          </View>
 
           <View style={[styles.couponsForYou]}>
             <Text style={[styles.couponsForYouText]}>Coupons for you</Text>
