@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
   },
   headerImageScroll: {
     backgroundColor: Colors.WHITE,
-    marginTop: 5,
   },
   headerImage: {
     width: responsiveWidth(60),
