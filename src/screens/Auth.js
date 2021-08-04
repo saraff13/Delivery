@@ -54,12 +54,12 @@ class Auth extends Component {
               component={AppNavigator}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="Restaurants"
               component={Restaurants}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="RestaurantDetails"
               component={RestaurantDetails}
             />
@@ -74,7 +74,7 @@ class Auth extends Component {
               component={Map}
             />
             <Stack.Screen
-              options={{headerShown: true, headerTitle: 'OFFERS'}}
+              options={{headerShown: false}}
               name="Offers"
               component={Offers}
             />

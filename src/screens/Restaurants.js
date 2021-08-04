@@ -13,6 +13,7 @@ import {getRestaurants} from '../store/actions/restaurantsAction';
 import styles from '../styles/RestaurantsStyle';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {responsiveWidth} from '../utils/Responsive';
+import Header from '../components/Header';
 
 const Icon = MaterialCommunityIcons;
 
@@ -37,30 +38,33 @@ class Restaurants extends Component {
     const {restaurantsData} = this.props;
     // console.log(restaurantsData);
     return (
-      <FlatList
-        data={(restaurantsData && restaurantsData.data) || []}
-        renderItem={({item}) => {
-          return (
-            <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate('RestaurantDetails', {item})
-              }>
-              <EachRestaurant item={item} />
-            </TouchableOpacity>
-          );
-        }}
-        ListHeaderComponent={ListHeader}
-        ListFooterComponent={ListFooter}
-        onEndReached={() => this.fetchData()}
-        onEndReachedThreshold={0.9}
-        showsVerticalScrollIndicator={false}
-        refreshControl={
-          <RefreshControl
-            refreshing={false}
-            onRefresh={() => this.fetchData(false)}
-          />
-        }
-      />
+      <>
+        <Header navigation={this.props.navigation} title="Home" />
+        <FlatList
+          data={(restaurantsData && restaurantsData.data) || []}
+          renderItem={({item}) => {
+            return (
+              <TouchableOpacity
+                onPress={() =>
+                  this.props.navigation.navigate('RestaurantDetails', {item})
+                }>
+                <EachRestaurant item={item} />
+              </TouchableOpacity>
+            );
+          }}
+          ListHeaderComponent={ListHeader}
+          ListFooterComponent={ListFooter}
+          onEndReached={() => this.fetchData()}
+          onEndReachedThreshold={0.9}
+          showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl
+              refreshing={false}
+              onRefresh={() => this.fetchData(false)}
+            />
+          }
+        />
+      </>
     );
   }
 }

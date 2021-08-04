@@ -69,22 +69,22 @@ const HomeStack = () => {
       <Stack.Screen
         name="CuisinesRestaurants"
         component={CuisinesRestaurants}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="CouponsRestaurants"
         component={CouponsRestaurants}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="ImageSlidersRestaurants"
         component={ImageSlidersRestaurants}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="RestaurantDetails"
         component={RestaurantDetails}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
