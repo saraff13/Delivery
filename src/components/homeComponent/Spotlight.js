@@ -7,6 +7,7 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native';
 import * as Colors from '../../utils/Colors';
 import {connect} from 'react-redux';
@@ -53,7 +54,9 @@ class Spotlight extends Component {
               </TouchableOpacity>
             );
           }}
+          refreshControl={<RefreshControl refreshing={false} />}
           onEndReached={() => this.fetchData()}
+          onEndReachedThreshold={0.5}
         />
       </ScrollView>
     );

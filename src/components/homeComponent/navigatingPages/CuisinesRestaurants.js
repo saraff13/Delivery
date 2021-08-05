@@ -6,6 +6,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native';
 import {connect} from 'react-redux';
 import * as Colors from '../../../utils/Colors';
@@ -84,7 +85,9 @@ class CuisinesRestaurants extends Component {
             );
           }}
           ListFooterComponent={ListFooter}
+          refreshControl={<RefreshControl refreshing={false} />}
           onEndReached={() => this.fetchData()}
+          onEndReachedThreshold={0.5}
         />
         <Header
           navigation={this.props.navigation}

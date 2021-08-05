@@ -8,6 +8,7 @@ import {
   View,
   LogBox,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native';
 import * as Colors from '../../utils/Colors';
 import {connect} from 'react-redux';
@@ -50,7 +51,9 @@ class PromotedRestaurants extends Component {
               </TouchableOpacity>
             );
           }}
+          refreshControl={<RefreshControl refreshing={false} />}
           onEndReached={() => this.fetchData()}
+          onEndReachedThreshold={0.5}
         />
       </SafeAreaView>
     );

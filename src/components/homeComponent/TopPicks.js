@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
   FlatList,
   Image,
+  RefreshControl,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -42,7 +43,9 @@ class TopPicks extends Component {
             </TouchableOpacity>
           );
         }}
+        refreshControl={<RefreshControl refreshing={false} />}
         onEndReached={() => this.fetchData()}
+        onEndReachedThreshold={0.5}
       />
     );
   }

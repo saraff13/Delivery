@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
   FlatList,
   Image,
+  RefreshControl,
   StyleSheet,
   TouchableOpacity,
   View,
@@ -40,7 +41,9 @@ class Coupons extends Component {
             </TouchableOpacity>
           );
         }}
+        refreshControl={<RefreshControl refreshing={false} />}
         onEndReached={() => this.fetchData()}
+        onEndReachedThreshold={0.5}
       />
     );
   }
