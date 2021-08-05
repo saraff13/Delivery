@@ -14,6 +14,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {setLoginData} from '../store/actions/loginAction';
 import Loader from '../components/Loader';
 import RestaurantDetails from '../components/homeComponent/navigatingPages/RestaurantDetails';
+import CouponsRestaurants from '../components/homeComponent/navigatingPages/CouponsRestaurants';
+import CuisinesRestaurants from '../components/homeComponent/navigatingPages/CuisinesRestaurants';
+import ImageSlidersRestaurants from '../components/homeComponent/navigatingPages/ImageSlidersRestaurants';
 
 const Stack = createStackNavigator();
 
@@ -52,6 +55,21 @@ class Auth extends Component {
               options={{headerShown: false}}
               name="AppNavigator"
               component={AppNavigator}
+            />
+            <Stack.Screen
+              options={{headerShown: false}}
+              name="CouponsRestaurants"
+              component={CouponsRestaurants}
+            />
+            <Stack.Screen
+              options={{headerShown: false}}
+              name="CuisinesRestaurants"
+              component={CuisinesRestaurants}
+            />
+            <Stack.Screen
+              options={{headerShown: false}}
+              name="ImageSlidersRestaurants"
+              component={ImageSlidersRestaurants}
             />
             <Stack.Screen
               options={{headerShown: false}}
