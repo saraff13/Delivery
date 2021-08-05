@@ -11,15 +11,9 @@ const Tab = createBottomTabNavigator();
 
 export default class AppNavigator extends Component {
   render() {
-    const customTabBarStyle = {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-      style: {borderWidth: 2, paddingBottom: 7, paddingTop: 3},
-    };
     return (
       <Tab.Navigator
-        style={{color: 'green'}}
-        initialRouteName="Dashboard"
+        initialRouteName="SWIGGY"
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
@@ -38,7 +32,12 @@ export default class AppNavigator extends Component {
             return <Icon name={iconName} size={size} color={color} />;
           },
         })}
-        tabBarOptions={customTabBarStyle}>
+        tabBarOptions={{
+          keyboardHidesTabBar: true,
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+          tabStyle: {paddingBottom: 7, paddingTop: 3},
+        }}>
         <Tab.Screen name="SWIGGY" component={Home} />
 
         <Tab.Screen name="SEARCH" component={Search} />
