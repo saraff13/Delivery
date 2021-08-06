@@ -13,7 +13,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
 import {setLoginData} from '../store/actions/loginAction';
 import Loader from '../components/Loader';
-import RestaurantDetails from '../components/homeComponent/navigatingPages/RestaurantDetails';
+import RestaurantDetails from './restaurantDetails/RestaurantDetails';
 import CouponsRestaurants from '../components/homeComponent/navigatingPages/CouponsRestaurants';
 import CuisinesRestaurants from '../components/homeComponent/navigatingPages/CuisinesRestaurants';
 import ImageSlidersRestaurants from '../components/homeComponent/navigatingPages/ImageSlidersRestaurants';

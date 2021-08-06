@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
 import {connect} from 'react-redux';
-import * as Colors from '../../../utils/Colors';
-import Header from '../../Header';
+import styles from './RestaurantDetailsStyle';
+import Header from '../../components/Header';
 
 class RestaurantDetails extends Component {
   render() {
@@ -22,12 +22,3 @@ class RestaurantDetails extends Component {
 }
 
 export default connect(null)(RestaurantDetails);
-
-const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.WHITE,
-  },
-});
