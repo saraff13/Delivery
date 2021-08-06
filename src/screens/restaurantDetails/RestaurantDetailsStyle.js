@@ -124,7 +124,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: responsiveHeight(5),
+    alignItems: 'center',
+    height: responsiveHeight(13),
   },
   switch: {
     // transform: [{scaleX: 1}, {scaleY: 1}],
