@@ -127,24 +127,33 @@ const styles = StyleSheet.create({
     paddingVertical: responsiveHeight(5),
   },
   switch: {
-    fontSize: 15,
+    // transform: [{scaleX: 1}, {scaleY: 1}],
     marginRight: 10,
+    // borderWidth: 1,
   },
   vegToggle: {
     flexDirection: 'row',
+    // borderWidth: 1,
   },
   VegText: {
     fontSize: 15,
     fontWeight: '700',
     color: 'dimgrey',
+    // borderWidth: 1,
+    textAlignVertical: 'center',
+  },
+  bestSafetyWrap: {
+    flexDirection: 'row',
+    marginRight: 15,
   },
   bestSafetyText: {
     fontWeight: 'bold',
     fontSize: 10,
     borderWidth: 1,
     borderColor: 'lightgrey',
-    marginVertical: 1,
-    marginRight: 10,
+    textAlignVertical: 'center',
+    height: responsiveHeight(2.5),
+    marginLeft: 2,
   },
 
   recommended: {

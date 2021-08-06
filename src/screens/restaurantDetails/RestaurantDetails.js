@@ -10,7 +10,7 @@ const Icon = MaterialCommunityIcons;
 
 class RestaurantDetails extends Component {
   state = {
-    veg: false,
+    onlyVeg: false,
   };
   render() {
     // console.log(this.props.route.params.item);
@@ -50,7 +50,7 @@ class RestaurantDetails extends Component {
         },
       ],
     } = this.props.route.params.item;
-    const {veg} = this.state;
+    const {onlyVeg} = this.state;
     return (
       <>
         <Header navigation={this.props.navigation} showRestaurantHeader />
@@ -131,20 +131,20 @@ class RestaurantDetails extends Component {
             <View style={[styles.vegToggle]}>
               <Switch
                 style={[styles.switch]}
-                trackColor={{false: '#767577', true: '#81b0ff'}}
-                thumbColor={veg ? '#f5dd4b' : '#f4f3f4'}
+                trackColor={{false: 'lightgrey', true: 'darkcyan'}}
+                thumbColor={onlyVeg ? 'green' : 'darkgrey'}
                 ios_backgroundColor="#3e3e3e"
-                onValueChange={() => this.setState({veg: !veg})}
-                value={veg}
+                onValueChange={() => this.setState({onlyVeg: !onlyVeg})}
+                value={onlyVeg}
               />
               <Text style={[styles.VegText]}>VEG ONLY</Text>
             </View>
 
             {bestSafety && (
-              <Text style={[styles.bestSafetyText]}>
+              <View style={[styles.bestSafetyWrap]}>
                 <Icon name="shield-check" color="darkorange" size={15} />
-                &nbsp;BEST SAFETY
-              </Text>
+                <Text style={[styles.bestSafetyText]}>BEST SAFETY</Text>
+              </View>
             )}
           </View>
 
