@@ -11,7 +11,7 @@ import {
   RefreshControl,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {getRestaurants} from '../../store/actions/restaurantsAction';
+import {getdishes} from '../../store/actions/dishesAction';
 import {responsiveHeight, responsiveWidth} from '../../utils/Responsive';
 import * as Colors from '../../utils/Colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -24,23 +24,23 @@ class Recommended extends Component {
     this.fetchData(false);
   }
   fetchData = (isPaginated = true) => {
-    const {getRestaurants, restaurantsData} = this.props;
+    const {getdishes, dishesData} = this.props;
     if (!isPaginated) {
-      getRestaurants({data: [], pageNo: 1});
+      getdishes({data: [], pageNo: 1});
       return;
     }
-    const data = (restaurantsData && restaurantsData.data) || [];
-    const currPageNo = (restaurantsData && restaurantsData.page) || 0;
+    const data = (dishesData && dishesData.data) || [];
+    const currPageNo = (dishesData && dishesData.page) || 0;
     const pageNo = currPageNo + 1;
-    if (pageNo <= restaurantsData.total_pages) getRestaurants({data, pageNo});
+    if (pageNo <= dishesData.total_pages) getdishes({data, pageNo});
   };
   render() {
-    const {restaurantsData, showOnlyVegDishes} = this.props;
+    const {dishesData, showOnlyVegDishes} = this.props;
     return (
       <SafeAreaView style={{flex: 1}}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={(restaurantsData && restaurantsData.data) || []}
+          data={(dishesData && dishesData.data) || []}
           renderItem={({item}) => {
             const {
               avatar,
@@ -112,10 +112,10 @@ class Recommended extends Component {
 }
 
 const mapStateToProps = state => ({
-  restaurantsData: state.restaurantsReducer.data,
+  dishesData: state.dishesReducer.data,
 });
 
-export default connect(mapStateToProps, {getRestaurants})(Recommended);
+export default connect(mapStateToProps, {getdishes})(Recommended);
 
 const styles = StyleSheet.create({
   eachDishBox: {
