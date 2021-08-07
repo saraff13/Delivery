@@ -15,7 +15,6 @@ import {getRestaurants} from '../../store/actions/restaurantsAction';
 import {responsiveHeight, responsiveWidth} from '../../utils/Responsive';
 import * as Colors from '../../utils/Colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Color} from 'chalk';
 
 const Icon = MaterialCommunityIcons;
 
@@ -62,6 +61,7 @@ class Recommended extends Component {
             else if (chicken) iconColor = 'brown';
             let height = responsiveHeight(20);
             if (avatar) height = responsiveHeight(26);
+            if (showOnlyVegDishes && (egg || chicken)) return null;
             return (
               <View
                 style={[
