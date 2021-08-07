@@ -59,8 +59,8 @@ class Recommended extends Component {
             let iconColor = Colors.GREEN;
             if (egg) iconColor = 'orange';
             else if (chicken) iconColor = 'brown';
-            let height = responsiveHeight(20);
-            if (avatar) height = responsiveHeight(26);
+            let height = responsiveHeight(17);
+            if (dishImage) height = responsiveHeight(26);
             if (showOnlyVegDishes && (egg || chicken)) return null;
             return (
               <View
@@ -93,12 +93,23 @@ class Recommended extends Component {
                   </Text>
                 </View>
 
-                <View style={[styles.rightDishBox]}>
-                  <Image source={{uri: dishImage}} style={[styles.dishImage]} />
-                  <TouchableOpacity style={[styles.addBox]}>
-                    <Text style={[styles.textAdd]}>ADD</Text>
-                  </TouchableOpacity>
-                </View>
+                {dishImage ? (
+                  <View style={[styles.rightDishBoxWithImage]}>
+                    <Image
+                      source={{uri: dishImage}}
+                      style={[styles.dishImage]}
+                    />
+                    <TouchableOpacity style={[styles.addBox]}>
+                      <Text style={[styles.textAdd]}>ADD</Text>
+                    </TouchableOpacity>
+                  </View>
+                ) : (
+                  <View style={[styles.rightDishBoxNoImage]}>
+                    <TouchableOpacity style={[styles.addBoxNoImage]}>
+                      <Text style={[styles.textAddNoImage]}>ADD</Text>
+                    </TouchableOpacity>
+                  </View>
+                )}
               </View>
             );
           }}
@@ -165,9 +176,10 @@ const styles = StyleSheet.create({
   price: {
     color: 'dimgrey',
     fontSize: 16,
+    paddingBottom: 7,
   },
 
-  rightDishBox: {
+  rightDishBoxWithImage: {
     // borderWidth: 1,
   },
   dishImage: {
@@ -179,7 +191,7 @@ const styles = StyleSheet.create({
   addBox: {
     position: 'absolute',
     width: responsiveWidth(25),
-    height: responsiveHeight(5),
+    height: responsiveHeight(6),
     backgroundColor: Colors.WHITE,
     justifyContent: 'center',
     alignItems: 'center',
@@ -187,11 +199,32 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: 'lightgrey',
     marginHorizontal: responsiveWidth(4),
-    marginTop: responsiveHeight(17.5),
+    marginTop: responsiveHeight(16.5),
   },
   textAdd: {
     color: 'green',
     fontWeight: 'bold',
-    fontSize: 17,
+    fontSize: 18,
+  },
+
+  rightDishBoxNoImage: {
+    // borderWidth: 1,
+    justifyContent: 'center',
+  },
+  addBoxNoImage: {
+    width: responsiveWidth(25),
+    height: responsiveHeight(6),
+    backgroundColor: Colors.WHITE,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: 'lightgrey',
+    marginHorizontal: responsiveWidth(4),
+  },
+  textAddNoImage: {
+    color: 'green',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
 });
