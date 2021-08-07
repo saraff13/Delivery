@@ -85,7 +85,6 @@ class CuisinesRestaurants extends Component {
             );
           }}
           ListFooterComponent={ListFooter}
-          refreshControl={<RefreshControl refreshing={false} />}
           onEndReached={() => this.fetchData()}
           onEndReachedThreshold={0.5}
         />
