@@ -146,8 +146,8 @@ const styles = StyleSheet.create({
   },
   customVegIcon: {
     borderWidth: 1,
-    height: 16,
-    width: 16,
+    height: 17,
+    width: 17,
     marginRight: 7,
     justifyContent: 'center',
     alignItems: 'center',

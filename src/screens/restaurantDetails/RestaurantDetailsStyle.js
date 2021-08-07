@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.04)',
     height: 20,
     width: responsiveWidth(100),
-    marginTop: responsiveHeight(3),
   },
   specialSeperator: {
     backgroundColor: 'rgba(0,0,0,0.04)',
@@ -158,11 +157,11 @@ const styles = StyleSheet.create({
     marginLeft: 2,
   },
 
-  recommended: {
+  dishTypeBox: {
     marginTop: responsiveHeight(3),
     marginHorizontal: 15,
   },
-  recommendedText: {
+  dishTypeText: {
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: responsiveHeight(1),

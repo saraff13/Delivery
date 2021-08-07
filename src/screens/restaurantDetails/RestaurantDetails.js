@@ -5,6 +5,10 @@ import styles from './RestaurantDetailsStyle';
 import Header from '../../components/Header';
 import Recommended from '../../components/restaurantDetailPageComponent/Recommended';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import DessertsAndBeverages from '../../components/restaurantDetailPageComponent/DessertsAndBeverages';
+import SaladsAndAccompaniments from '../../components/restaurantDetailPageComponent/SaladsAndAccompaniments';
+import StartersChinese from '../../components/restaurantDetailPageComponent/StartersChinese';
+import StartersNorthIndian from '../../components/restaurantDetailPageComponent/StartersNorthIndian';
 
 const Icon = MaterialCommunityIcons;
 
@@ -168,10 +172,43 @@ class RestaurantDetails extends Component {
             )}
           </View>
 
-          <View style={[styles.recommended]}>
-            <Text style={[styles.recommendedText]}>Recommended</Text>
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>Recommended</Text>
 
             <Recommended showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>{`Starters (Chinese)`}</Text>
+
+            <StartersChinese showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text
+              style={[styles.dishTypeText]}>{`Starters (North Indian)`}</Text>
+
+            <StartersNorthIndian showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>Desserts and Beverages</Text>
+
+            <DessertsAndBeverages showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>Salads and Accompaniments</Text>
+
+            <SaladsAndAccompaniments showOnlyVegDishes={onlyVeg} />
           </View>
 
           <Text style={[styles.seperators]} />
