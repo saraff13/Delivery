@@ -15,11 +15,11 @@ class RestaurantDetails extends Component {
   };
   intervalID = 0;
   incrementIndex() {
-    console.log('index => ', this.state.index);
+    // console.log('index => ', this.state.index);
     this.setState({index: (this.state.index + 1) % 4});
   }
   componentDidMount() {
-    console.log('outside index => ', this.state.index);
+    // console.log('outside index => ', this.state.index);
     this.intervalID = setInterval(() => {
       this.incrementIndex();
     }, 2000);
@@ -171,7 +171,7 @@ class RestaurantDetails extends Component {
           <View style={[styles.recommended]}>
             <Text style={[styles.recommendedText]}>Recommended</Text>
 
-            <Recommended />
+            <Recommended showOnlyVegDishes={onlyVeg} />
           </View>
 
           <Text style={[styles.seperators]} />

@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
   recommendedText: {
     fontSize: 20,
     fontWeight: 'bold',
+    marginBottom: responsiveHeight(1),
   },
 });
 
