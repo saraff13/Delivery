@@ -11,7 +11,23 @@ const Icon = MaterialCommunityIcons;
 class RestaurantDetails extends Component {
   state = {
     onlyVeg: false,
+    index: 0,
   };
+  intervalID = 0;
+  incrementIndex() {
+    console.log('index => ', this.state.index);
+    this.setState({index: (this.state.index + 1) % 4});
+  }
+  componentDidMount() {
+    console.log('outside index => ', this.state.index);
+    this.intervalID = setInterval(() => {
+      this.incrementIndex();
+    }, 2000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
   render() {
     // console.log(this.props.route.params.item);
     const {
@@ -27,10 +43,13 @@ class RestaurantDetails extends Component {
       address = 'BHU, Lanka, Varanasi',
       distanceKM = '1.2 kms',
       rating = '4.5',
-      noOfRatings = '1000+',
-      tasteRating = '72%',
-      packagingRating = '83%',
-      portionRating = '80%',
+      ratingsArray = [
+        '1000+ ratings',
+        'Taste 72%',
+        'Packaging 83%',
+        'Portion 80%',
+      ],
+
       timeMinutes = '34 mins',
       rupeesForTwo = '500',
       bestSafety = true,
@@ -50,7 +69,8 @@ class RestaurantDetails extends Component {
         },
       ],
     } = this.props.route.params.item;
-    const {onlyVeg} = this.state;
+    const {onlyVeg, index} = this.state;
+
     return (
       <>
         <Header navigation={this.props.navigation} showRestaurantHeader />
@@ -71,7 +91,7 @@ class RestaurantDetails extends Component {
                     <Icon name="star" size={18} /> {rating}{' '}
                     <Icon name="chevron-right" size={18} />
                   </Text>
-                  <Text style={[styles.reviewType]}>{noOfRatings} ratings</Text>
+                  <Text style={[styles.reviewType]}>{ratingsArray[index]}</Text>
                 </View>
                 <View style={[styles.reviewDetails]}>
                   <Text style={[styles.review]}>{timeMinutes}</Text>
@@ -151,7 +171,7 @@ class RestaurantDetails extends Component {
           <View style={[styles.recommended]}>
             <Text style={[styles.recommendedText]}>Recommended</Text>
 
-            {/* <Recommended /> */}
+            <Recommended />
           </View>
 
           <Text style={[styles.seperators]} />
