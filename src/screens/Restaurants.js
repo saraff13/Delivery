@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
   FlatList,
   Image,
-  RefreshControl,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -57,12 +56,6 @@ class Restaurants extends Component {
           onEndReached={() => this.fetchData()}
           onEndReachedThreshold={0.5}
           showsVerticalScrollIndicator={false}
-          refreshControl={
-            <RefreshControl
-              refreshing={false}
-              onRefresh={() => this.fetchData(false)}
-            />
-          }
         />
       </>
     );

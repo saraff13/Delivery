@@ -6,7 +6,6 @@ import {
   Text,
   View,
   TouchableOpacity,
-  RefreshControl,
 } from 'react-native';
 import {connect} from 'react-redux';
 import * as Colors from '../../../utils/Colors';
