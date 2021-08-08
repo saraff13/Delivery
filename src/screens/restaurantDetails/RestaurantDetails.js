@@ -9,6 +9,7 @@ import DessertsAndBeverages from '../../components/restaurantDetailPageComponent
 import SaladsAndAccompaniments from '../../components/restaurantDetailPageComponent/SaladsAndAccompaniments';
 import StartersChinese from '../../components/restaurantDetailPageComponent/StartersChinese';
 import StartersNorthIndian from '../../components/restaurantDetailPageComponent/StartersNorthIndian';
+import MainCourseNorthIndian from '../../components/restaurantDetailPageComponent/MainCourseNorthIndian';
 
 const Icon = MaterialCommunityIcons;
 
@@ -193,6 +194,16 @@ class RestaurantDetails extends Component {
               style={[styles.dishTypeText]}>{`Starters (North Indian)`}</Text>
 
             <StartersNorthIndian showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>
+              {`Main Course (North Indian)`}
+            </Text>
+
+            <MainCourseNorthIndian showOnlyVegDishes={onlyVeg} />
           </View>
 
           <Text style={[styles.seperators]} />
