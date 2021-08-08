@@ -10,6 +10,7 @@ class Header extends Component {
   render() {
     const {
       title = '',
+      time = '',
       navigation,
       showRestaurantHeader,
       showOnlyBackIcon,
@@ -38,11 +39,22 @@ class Header extends Component {
               <>
                 {showRestaurantHeader ? (
                   <View style={[styles.restaurantHeader]}>
-                    <TouchableOpacity
-                      style={[styles.backIcon]}
-                      onPress={() => navigation.goBack()}>
-                      <Icon name="arrow-left" size={25} color="black" />
-                    </TouchableOpacity>
+                    <View style={[styles.backIconTitleWrap]}>
+                      <TouchableOpacity
+                        style={[styles.backIcon]}
+                        onPress={() => navigation.goBack()}>
+                        <Icon name="arrow-left" size={25} color="black" />
+                      </TouchableOpacity>
+                      <View style={[styles.restaurantHeaderBox]}>
+                        <Text style={[styles.restaurantHeaderTitle]}>
+                          {title}
+                        </Text>
+                        <Text style={[styles.restaurantHeaderTime]}>
+                          {time}
+                        </Text>
+                      </View>
+                    </View>
+
                     <View style={[styles.rightIcons]}>
                       <TouchableOpacity
                         style={[styles.heartIcon]}
@@ -111,9 +123,26 @@ const styles = StyleSheet.create({
   restaurantHeader: {
     flexDirection: 'row',
     marginHorizontal: 15,
+    alignItems: 'center',
     justifyContent: 'space-between',
   },
-  backIcon: {},
+  backIconTitleWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  restaurantHeaderBox: {
+    // borderWidth: 1,
+  },
+  restaurantHeaderTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  restaurantHeaderTime: {
+    color: 'dimgrey',
+  },
+  backIcon: {
+    marginRight: responsiveWidth(3),
+  },
   rightIcons: {
     flexDirection: 'row',
     width: responsiveWidth(20),

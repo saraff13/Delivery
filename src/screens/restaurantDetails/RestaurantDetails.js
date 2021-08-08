@@ -18,6 +18,8 @@ class RestaurantDetails extends Component {
   state = {
     onlyVeg: false,
     index: 0,
+    title: '',
+    time: '',
   };
   intervalID = 0;
   incrementIndex() {
@@ -75,12 +77,25 @@ class RestaurantDetails extends Component {
         },
       ],
     } = this.props.route.params.item;
-    const {onlyVeg, index} = this.state;
+    const {onlyVeg, index, time, title} = this.state;
 
     return (
       <>
-        <Header navigation={this.props.navigation} showRestaurantHeader />
-        <ScrollView showsVerticalScrollIndicator={false} style={[styles.main]}>
+        <Header
+          navigation={this.props.navigation}
+          title={title}
+          time={time}
+          showRestaurantHeader
+        />
+        <ScrollView
+          onScrollBeginDrag={() =>
+            this.setState({
+              title: restaurantName,
+              time: timeMinutes,
+            })
+          }
+          showsVerticalScrollIndicator={false}
+          style={[styles.main]}>
           <View style={[styles.restaurantDetails]}>
             <Text style={[styles.restaurantName]}>{restaurantName}</Text>
             <Text numberOfLines={1} style={[styles.restaurantType]}>
