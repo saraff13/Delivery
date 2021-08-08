@@ -66,7 +66,7 @@ class DessertsAndBeverages extends Component {
               <View
                 style={[
                   styles.eachDishBox,
-                  {height, borderTopWidth: id === 1 ? 0 : 1},
+                  {height, borderTopWidth: id === 1 ? 0 : 0.5},
                 ]}>
                 <View style={[styles.leftDishBox]}>
                   <View style={[styles.vegAndTagBox]}>
