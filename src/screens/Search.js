@@ -91,7 +91,7 @@ class Search extends Component {
                 <Text style={[styles.popularCuisinesText]}>
                   Popular cuisines around you
                 </Text>
-                <PopularCuisines />
+                <PopularCuisines navigation={this.props.navigation} />
               </View>
 
               <Text style={[styles.seperators]} />
