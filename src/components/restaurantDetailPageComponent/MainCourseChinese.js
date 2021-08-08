@@ -43,7 +43,10 @@ class MainCourseChinese extends Component {
     return (
       <>
         <TouchableOpacity
-          style={[styles.accordionBox, {borderBottomWidth: veg ? 0 : 0.5}]}
+          style={[
+            styles.accordionBox,
+            {borderBottomWidth: veg || showOnlyVegDishes ? 0 : 0.5},
+          ]}
           onPress={() => this.setState({veg: !veg})}>
           <Text style={[styles.accordionText]}>
             {`Veg (${(dishesData && dishesData.total) || 0})`}
