@@ -78,7 +78,6 @@ class RestaurantDetails extends Component {
       ],
     } = this.props.route.params.item;
     const {onlyVeg, index, time, title} = this.state;
-
     return (
       <>
         <Header
@@ -88,12 +87,13 @@ class RestaurantDetails extends Component {
           showRestaurantHeader
         />
         <ScrollView
-          onScrollBeginDrag={() =>
-            this.setState({
-              title: restaurantName,
-              time: timeMinutes,
-            })
-          }
+          onScroll={e => {
+            if (e.nativeEvent.contentOffset.y <= 0) {
+              this.setState({title: '', time: ''});
+            } else if (title === '' && time === '') {
+              this.setState({title: restaurantName, time: timeMinutes});
+            }
+          }}
           showsVerticalScrollIndicator={false}
           style={[styles.main]}>
           <View style={[styles.restaurantDetails]}>
