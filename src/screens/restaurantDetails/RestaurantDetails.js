@@ -10,6 +10,7 @@ import SaladsAndAccompaniments from '../../components/restaurantDetailPageCompon
 import StartersChinese from '../../components/restaurantDetailPageComponent/StartersChinese';
 import StartersNorthIndian from '../../components/restaurantDetailPageComponent/StartersNorthIndian';
 import MainCourseNorthIndian from '../../components/restaurantDetailPageComponent/MainCourseNorthIndian';
+import MainCourseChinese from '../../components/restaurantDetailPageComponent/MainCourseChinese';
 
 const Icon = MaterialCommunityIcons;
 
@@ -204,6 +205,14 @@ class RestaurantDetails extends Component {
             </Text>
 
             <MainCourseNorthIndian showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>{`Main Course (Chinese)`}</Text>
+
+            <MainCourseChinese showOnlyVegDishes={onlyVeg} />
           </View>
 
           <Text style={[styles.seperators]} />
