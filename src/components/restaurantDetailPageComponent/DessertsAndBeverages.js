@@ -49,9 +49,9 @@ class DessertsAndBeverages extends Component {
               last_name,
               id,
 
-              dishImage,
+              dishImage = avatar,
               dishName = `${first_name} ${last_name}`,
-              price = id * 43,
+              price = id * 32,
               tag,
               egg = false,
               chicken = false,

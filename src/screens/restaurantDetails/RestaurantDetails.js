@@ -11,6 +11,11 @@ import StartersChinese from '../../components/restaurantDetailPageComponent/Star
 import StartersNorthIndian from '../../components/restaurantDetailPageComponent/StartersNorthIndian';
 import MainCourseNorthIndian from '../../components/restaurantDetailPageComponent/MainCourseNorthIndian';
 import MainCourseChinese from '../../components/restaurantDetailPageComponent/MainCourseChinese';
+import RiceAndBiryani from '../../components/restaurantDetailPageComponent/RiceAndBiryani';
+import Thalis from '../../components/restaurantDetailPageComponent/Thalis';
+import Soups from '../../components/restaurantDetailPageComponent/Soups';
+import SandwichesRollsQuickBites from '../../components/restaurantDetailPageComponent/SandwichesRollsQuickBites';
+import RotisAndBreads from '../../components/restaurantDetailPageComponent/RotisAndBreads';
 
 const Icon = MaterialCommunityIcons;
 
@@ -215,6 +220,22 @@ class RestaurantDetails extends Component {
           <Text style={[styles.seperators]} />
 
           <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>{`Thalis`}</Text>
+
+            <Thalis showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>{`Rice and Biryani`}</Text>
+
+            <RiceAndBiryani showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
             <Text style={[styles.dishTypeText]}>
               {`Main Course (North Indian)`}
             </Text>
@@ -225,9 +246,35 @@ class RestaurantDetails extends Component {
           <Text style={[styles.seperators]} />
 
           <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>
+              {`Sandwiches/Rolls/Quick Bites`}
+            </Text>
+
+            <SandwichesRollsQuickBites showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
             <Text style={[styles.dishTypeText]}>{`Main Course (Chinese)`}</Text>
 
             <MainCourseChinese showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>{`Soups`}</Text>
+
+            <Soups showOnlyVegDishes={onlyVeg} />
+          </View>
+
+          <Text style={[styles.seperators]} />
+
+          <View style={[styles.dishTypeBox]}>
+            <Text style={[styles.dishTypeText]}>{`Rotis and Breads`}</Text>
+
+            <RotisAndBreads showOnlyVegDishes={onlyVeg} />
           </View>
 
           <Text style={[styles.seperators]} />

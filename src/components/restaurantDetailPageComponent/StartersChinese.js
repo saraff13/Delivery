@@ -51,10 +51,10 @@ class StartersChinese extends Component {
 
               dishImage = avatar,
               dishName = `${first_name} ${last_name}`,
-              price = id * 43,
+              price = id * 78,
               tag,
               egg = false,
-              chicken = false,
+              chicken = true,
             } = item;
             let iconColor = Colors.GREEN;
             if (egg) iconColor = 'orange';

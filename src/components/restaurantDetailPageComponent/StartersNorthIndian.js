@@ -51,7 +51,7 @@ class StartersNorthIndian extends Component {
 
               dishImage = avatar,
               dishName = `${first_name} ${last_name}`,
-              price = id * 43,
+              price = id * 27,
               tag = 'MustTry',
               egg = false,
               chicken = false,

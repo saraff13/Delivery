@@ -70,7 +70,7 @@ class MainCourseChinese extends Component {
 
                 dishImage = avatar,
                 dishName = `${first_name} ${last_name}`,
-                price = id * 43,
+                price = id * 53,
                 tag,
                 egg = false,
                 chicken = false,

@@ -51,7 +51,7 @@ class SaladsAndAccompaniments extends Component {
 
               dishImage,
               dishName = `${first_name} ${last_name}`,
-              price = id * 43,
+              price = id * 15,
               tag,
               egg = false,
               chicken = false,
