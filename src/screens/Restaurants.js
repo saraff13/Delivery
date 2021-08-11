@@ -54,7 +54,7 @@ class Restaurants extends Component {
           ListHeaderComponent={ListHeader}
           ListFooterComponent={ListFooter}
           onEndReached={() => this.fetchData()}
-          onEndReachedThreshold={0.5}
+          onEndReachedThreshold={0.01}
           showsVerticalScrollIndicator={false}
         />
       </>

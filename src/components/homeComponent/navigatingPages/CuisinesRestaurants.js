@@ -85,7 +85,7 @@ class CuisinesRestaurants extends Component {
           }}
           ListFooterComponent={ListFooter}
           onEndReached={() => this.fetchData()}
-          onEndReachedThreshold={0.5}
+          onEndReachedThreshold={0.01}
         />
         <Header
           navigation={this.props.navigation}

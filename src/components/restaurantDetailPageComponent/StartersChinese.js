@@ -115,7 +115,7 @@ class StartersChinese extends Component {
           }}
           refreshControl={<RefreshControl refreshing={false} />}
           onEndReached={() => this.fetchData()}
-          onEndReachedThreshold={0.5}
+          onEndReachedThreshold={0.01}
         />
       </SafeAreaView>
     );
