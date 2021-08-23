@@ -50,8 +50,9 @@ class RestaurantDetails extends Component {
       last_name,
       id,
 
+      licenseNo = '10417060000236',
       restaurantName = `${first_name} ${last_name}`,
-      isOpen = true,
+      outlet = 'Lanka',
       type = 'North Indian, Chinese, Italian, South Indian, Fast Food',
       address = 'BHU, Lanka, Varanasi',
       distanceKM = '1.2 kms',
@@ -293,7 +294,22 @@ class RestaurantDetails extends Component {
             <SaladsAndAccompaniments showOnlyVegDishes={onlyVeg} />
           </View>
 
-          <Text style={[styles.seperators]} />
+          <View style={[styles.footer]}>
+            <Text style={[styles.licenseNo]}>License No. {licenseNo}</Text>
+            <View style={[styles.footerDetails]}>
+              <Text style={[styles.footerTitle]}>
+                {restaurantName} Restaurant
+              </Text>
+              <Text style={[styles.outlet]}>{`(Outlet:${outlet})`}</Text>
+              <View style={[styles.footerAddressBox]}>
+                <Icon
+                  name="map-marker-outline"
+                  style={[styles.footerAddressIcon]}
+                />
+                <Text style={[styles.footerAddressText]}>{address}</Text>
+              </View>
+            </View>
+          </View>
         </ScrollView>
       </>
     );

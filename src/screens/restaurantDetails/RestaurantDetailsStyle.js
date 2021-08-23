@@ -166,6 +166,50 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: responsiveHeight(1),
   },
+
+  footer: {
+    backgroundColor: 'rgba(0,0,0,0.04)',
+    height: responsiveHeight(50),
+    width: responsiveWidth(100),
+    paddingHorizontal: 15,
+  },
+  licenseNo: {
+    color: 'dimgrey',
+    height: responsiveHeight(10),
+    fontSize: 16,
+    fontWeight: '600',
+    textAlignVertical: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgrey',
+  },
+  footerDetails: {
+    flex: 1,
+    // borderWidth: 1,
+    marginTop: responsiveHeight(5),
+  },
+  footerTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: 'dimgrey',
+  },
+  outlet: {
+    fontSize: 14,
+    color: 'dimgrey',
+  },
+  footerAddressBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: responsiveHeight(1.5),
+  },
+  footerAddressIcon: {
+    fontSize: 14,
+    color: 'dimgrey',
+  },
+  footerAddressText: {
+    fontSize: 14,
+    color: 'darkgrey',
+    paddingLeft: 5,
+  },
 });
 
 export default styles;
