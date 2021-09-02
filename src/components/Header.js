@@ -160,8 +160,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   headerTitle: {
-    fontWeight: 'bold',
-    fontSize: 20,
+    fontWeight: '700',
+    fontSize: 17,
     marginLeft: 10,
   },
   rightHeaderBox: {

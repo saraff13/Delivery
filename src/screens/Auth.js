@@ -123,7 +123,7 @@ class Auth extends Component {
               component={Favourites}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="RefundStatus"
               component={RefundStatus}
             />
