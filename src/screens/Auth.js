@@ -17,6 +17,12 @@ import RestaurantDetails from './restaurantDetails/RestaurantDetails';
 import CouponsRestaurants from '../components/homeComponent/navigatingPages/CouponsRestaurants';
 import CuisinesRestaurants from '../components/homeComponent/navigatingPages/CuisinesRestaurants';
 import ImageSlidersRestaurants from '../components/homeComponent/navigatingPages/ImageSlidersRestaurants';
+import Help from '../components/ProfileComponent/Help';
+import SwiggyMoney from '../components/ProfileComponent/SwiggyMoney';
+import Addresses from '../components/ProfileComponent/Addresses';
+import Favourites from '../components/ProfileComponent/Favourites';
+import RefundStatus from '../components/ProfileComponent/RefundStatus';
+import PaymentModes from '../components/ProfileComponent/PaymentModes';
 
 const Stack = createStackNavigator();
 
@@ -95,6 +101,36 @@ class Auth extends Component {
               options={{headerShown: false}}
               name="Offers"
               component={Offers}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="Help"
+              component={Help}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="SwiggyMoney"
+              component={SwiggyMoney}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="Addresses"
+              component={Addresses}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="Favourites"
+              component={Favourites}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="RefundStatus"
+              component={RefundStatus}
+            />
+            <Stack.Screen
+              options={{headerShown: true}}
+              name="PaymentModes"
+              component={PaymentModes}
             />
           </Stack.Navigator>
         ) : (

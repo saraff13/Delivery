@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import {connect} from 'react-redux';
 
-class Help extends Component {
+class Favourites extends Component {
   render() {
     return (
       <View>
-        <Text>help</Text>
+        <Text>Favourites</Text>
       </View>
     );
   }
 }
 
-export default connect(null)(Help);
+export default connect(null)(Favourites);

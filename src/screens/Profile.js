@@ -10,7 +10,9 @@ const Icon = MaterialCommunityIcons;
 
 class Profile extends Component {
   state = {
-    show: false,
+    showHeader: false,
+    showMyAccount: false,
+    showPayments: false,
   };
   render() {
     const {user} = this.props;
@@ -19,20 +21,20 @@ class Profile extends Component {
       mobile = '9734324568',
       email = 'sgwrgfdd@gmail.com',
     } = this.props;
-    const {show} = this.state;
+    const {showHeader, showMyAccount, showPayments} = this.state;
     return (
       <>
         <ScrollView
+          showsVerticalScrollIndicator={false}
           onScroll={e => {
             if (e.nativeEvent.contentOffset.y <= 75) {
-              if (show === true) this.setState({show: false});
+              if (showHeader === true) this.setState({showHeader: false});
             } else {
-              if (show === false) this.setState({show: true});
+              if (showHeader === false) this.setState({showHeader: true});
             }
           }}
-          style={[styles.main]}
-          showsVerticalScrollIndicator={false}>
-          <View style={[styles.eachComponentBox, {borderBottomWidth: 2}]}>
+          style={[styles.main]}>
+          <View style={[styles.headerBox]}>
             <View style={[styles.nameBox]}>
               <Text style={[styles.name]}>{`${name}`.toUpperCase()}</Text>
               <TouchableOpacity>
@@ -46,14 +48,131 @@ class Profile extends Component {
             </View>
           </View>
 
-          <View style={[styles.eachComponentBox]}></View>
+          <TouchableOpacity
+            style={[styles.eachComponentBox]}
+            onPress={() => this.setState({showMyAccount: !showMyAccount})}>
+            <View>
+              <Text style={[styles.boxTitle]}>My Account</Text>
+              <Text style={[styles.boxDetails]}>
+                {`Addresses, Favourites & Offers`}
+              </Text>
+            </View>
+            <Icon
+              name={showMyAccount ? 'chevron-up' : 'chevron-down'}
+              style={[styles.icons]}
+            />
+          </TouchableOpacity>
+          {showMyAccount && (
+            <>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('Addresses')}
+                style={[styles.eachAccordionBox, {borderTopWidth: 0.5}]}>
+                <View style={[styles.accordionDetails]}>
+                  <Icon
+                    name="home-outline"
+                    style={[styles.accordionDetailIcon]}
+                  />
+                  <Text style={[styles.accordionDetailText]}>
+                    Manage Addresses
+                  </Text>
+                </View>
+                <Icon name="chevron-right" style={[styles.icons]} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('Favourites')}
+                style={[styles.eachAccordionBox]}>
+                <View style={[styles.accordionDetails]}>
+                  <Icon
+                    name="heart-outline"
+                    style={[styles.accordionDetailIcon]}
+                  />
+                  <Text style={[styles.accordionDetailText]}>Favourites</Text>
+                </View>
+                <Icon name="chevron-right" style={[styles.icons]} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('Offers')}
+                style={[styles.eachAccordionBox]}>
+                <View style={[styles.accordionDetails]}>
+                  <Icon
+                    name="file-percent-outline"
+                    style={[styles.accordionDetailIcon]}
+                  />
+                  <Text style={[styles.accordionDetailText]}>Offers</Text>
+                </View>
+                <Icon name="chevron-right" style={[styles.icons]} />
+              </TouchableOpacity>
+            </>
+          )}
 
-          <View style={[styles.eachComponentBox]}></View>
+          <TouchableOpacity
+            onPress={() => this.setState({showPayments: !showPayments})}
+            style={[styles.eachComponentBox]}>
+            <View>
+              <Text style={[styles.boxTitle]}>{`Payments & Refunds`}</Text>
+              <Text style={[styles.boxDetails]}>
+                {`Refund Status & Payment Modes`}
+              </Text>
+            </View>
+            <Icon
+              name={showPayments ? 'chevron-up' : 'chevron-down'}
+              style={[styles.icons]}
+            />
+          </TouchableOpacity>
+          {showPayments && (
+            <>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('RefundStatus')}
+                style={[styles.eachAccordionBox, {borderTopWidth: 0.5}]}>
+                <View style={[styles.accordionDetails]}>
+                  <Icon
+                    name="credit-card-refund-outline"
+                    style={[styles.accordionDetailIcon]}
+                  />
+                  <Text style={[styles.accordionDetailText]}>
+                    Refund Status
+                  </Text>
+                </View>
+                <Icon name="chevron-right" style={[styles.icons]} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('PaymentModes')}
+                style={[styles.eachAccordionBox]}>
+                <View style={[styles.accordionDetails]}>
+                  <Icon
+                    name="credit-card-outline"
+                    style={[styles.accordionDetailIcon]}
+                  />
+                  <Text style={[styles.accordionDetailText]}>
+                    Payment Modes
+                  </Text>
+                </View>
+                <Icon name="chevron-right" style={[styles.icons]} />
+              </TouchableOpacity>
+            </>
+          )}
 
-          <View style={[styles.eachComponentBox]}></View>
+          <TouchableOpacity
+            style={[styles.eachComponentBox]}
+            onPress={() => this.props.navigation.navigate('SwiggyMoney')}>
+            <View>
+              <Text style={[styles.boxTitle]}>Swiggy Money</Text>
+              <Text style={[styles.boxDetails]}>
+                {`View Account Balance & Transactions History`}
+              </Text>
+            </View>
+            <Icon name="chevron-right" style={[styles.icons]} />
+          </TouchableOpacity>
 
-          <View
-            style={[styles.eachComponentBox, {borderBottomWidth: 0}]}></View>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Help')}
+            style={[styles.eachComponentBox]}>
+            <View>
+              <Text style={[styles.boxTitle]}>Help</Text>
+              <Text style={[styles.boxDetails]}>{`FAQs & Links`}</Text>
+            </View>
+            <Icon name="chevron-right" style={[styles.icons]} />
+          </TouchableOpacity>
 
           <View style={[styles.seperator]}>
             <Text style={[styles.seperatorTitle]}>PAST ORDERS</Text>
@@ -76,7 +195,7 @@ class Profile extends Component {
             <Text style={[styles.footerTitle]}>App version 3.49.2(926)</Text>
           </View>
         </ScrollView>
-        {show && (
+        {showHeader && (
           <View style={[styles.header]}>
             <Text style={[styles.headerTitle]}>MY ACCOUNT</Text>
           </View>

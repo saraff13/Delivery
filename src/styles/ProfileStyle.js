@@ -23,11 +23,31 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
   },
 
-  eachComponentBox: {
+  headerBox: {
     height: responsiveHeight(13),
     justifyContent: 'center',
     marginHorizontal: 15,
     borderBottomWidth: 0.5,
+  },
+
+  eachComponentBox: {
+    height: responsiveHeight(13),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 15,
+    borderTopWidth: 1,
+  },
+  boxTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  boxDetails: {
+    fontSize: 13.5,
+  },
+  icons: {
+    fontSize: 25,
+    color: 'dimgrey',
   },
 
   pastOrders: {
@@ -66,6 +86,25 @@ const styles = StyleSheet.create({
   emailID: {
     color: 'dimgrey',
     fontSize: 14,
+  },
+
+  eachAccordionBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginHorizontal: 15,
+    height: responsiveHeight(8),
+  },
+  accordionDetails: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  accordionDetailIcon: {
+    marginRight: responsiveWidth(5),
+    fontSize: 22,
+  },
+  accordionDetailText: {
+    fontSize: 15,
   },
 
   seperator: {
