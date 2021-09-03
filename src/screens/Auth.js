@@ -103,22 +103,22 @@ class Auth extends Component {
               component={Offers}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="Help"
               component={Help}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="SwiggyMoney"
               component={SwiggyMoney}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="Addresses"
               component={Addresses}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="Favourites"
               component={Favourites}
             />

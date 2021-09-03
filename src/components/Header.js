@@ -9,22 +9,29 @@ const Icon = MaterialCommunityIcons;
 class Header extends Component {
   render() {
     const {
-      title = '',
-      time = '',
+      title,
+      time,
       navigation,
       showRestaurantHeader,
       showOnlyBackIcon,
-      position = '',
+      position,
     } = this.props;
+    let bgColor;
+    if (title) bgColor = Colors.WHITE;
     return (
       <>
         {position ? (
-          <View style={[styles.main2, {position: position}]}>
+          <View
+            style={[
+              styles.main2,
+              {position: position, backgroundColor: bgColor},
+            ]}>
             <TouchableOpacity
               style={[styles.absoluteBackIcon]}
               onPress={() => navigation.goBack()}>
               <Icon name="arrow-left" size={25} color="black" />
             </TouchableOpacity>
+            {title && <Text style={[styles.absoluteHeaderTitle]}>{title}</Text>}
           </View>
         ) : (
           <View style={[styles.main]}>
@@ -109,11 +116,17 @@ const styles = StyleSheet.create({
   },
 
   main2: {
+    flexDirection: 'row',
     height: responsiveHeight(9),
-    justifyContent: 'center',
+    width: responsiveWidth(100),
+    alignItems: 'center',
   },
   absoluteBackIcon: {
     marginHorizontal: 15,
+  },
+  absoluteHeaderTitle: {
+    fontSize: 15,
+    fontWeight: '700',
   },
   iconLeft: {
     flexDirection: 'row',

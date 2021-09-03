@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import {connect} from 'react-redux';
+import Header from '../Header';
 
 class Favourites extends Component {
   render() {
     return (
-      <View>
-        <Text>Favourites</Text>
-      </View>
+      <>
+        <FlatList />
+        <Header
+          position={'absolute'}
+          navigation={this.props.navigation}
+          title="FAVOURITES"
+        />
+      </>
     );
   }
 }
