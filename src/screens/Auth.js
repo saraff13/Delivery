@@ -128,7 +128,7 @@ class Auth extends Component {
               component={RefundStatus}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="PaymentModes"
               component={PaymentModes}
             />
