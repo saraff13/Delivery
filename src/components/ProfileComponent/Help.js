@@ -7,14 +7,10 @@ class Help extends Component {
   render() {
     return (
       <>
+        <Header navigation={this.props.navigation} title="HELP" />
         <View>
           <Text>help</Text>
         </View>
-        <Header
-          position={'absolute'}
-          navigation={this.props.navigation}
-          title="HELP"
-        />
       </>
     );
   }

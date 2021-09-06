@@ -9,11 +9,7 @@ class PaymentModes extends Component {
   render() {
     return (
       <>
-        <Header
-          showOnlyBackIcon
-          navigation={this.props.navigation}
-          title="PAYMENTS"
-        />
+        <Header navigation={this.props.navigation} title="PAYMENTS" />
 
         <Text style={[styles.headerTitle]}>WALLET</Text>
         <View style={[styles.allPaymentsBox]}>

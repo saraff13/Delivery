@@ -8,11 +8,7 @@ class RefundStatus extends Component {
   render() {
     return (
       <>
-        <Header
-          showOnlyBackIcon
-          navigation={this.props.navigation}
-          title="ACTIVE REFUNDS"
-        />
+        <Header navigation={this.props.navigation} title="ACTIVE REFUNDS" />
         <View style={[styles.main]}>
           <Text style={[styles.message]}>You don't have any Active Refund</Text>
         </View>

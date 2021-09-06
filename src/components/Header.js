@@ -17,16 +17,10 @@ class Header extends Component {
       position,
       offers,
     } = this.props;
-    let bgColor;
-    if (title) bgColor = Colors.WHITE;
     return (
       <>
         {position ? (
-          <View
-            style={[
-              styles.main2,
-              {position: position, backgroundColor: bgColor},
-            ]}>
+          <View style={[styles.main2, {position: position}]}>
             <TouchableOpacity
               style={[styles.absoluteBackIcon]}
               onPress={() => navigation.goBack()}>
