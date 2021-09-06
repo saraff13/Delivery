@@ -38,16 +38,77 @@ class Favourites extends Component {
       <>
         <Header navigation={this.props.navigation} title="FAVOURITES" />
         <FlatList
+          style={{backgroundColor: Colors.WHITE}}
           showsVerticalScrollIndicator={false}
           data={(restaurantsData && restaurantsData.data) || []}
           renderItem={({item}) => {
             return (
               <TouchableOpacity
+                style={[styles.eachTouchableRestaurant]}
                 onPress={() =>
                   navigation.navigate('RestaurantDetails', {item})
                 }>
                 <RenderItem item={item} />
               </TouchableOpacity>
+            );
+          }}
+          ListFooterComponent={() => {
+            return (
+              <>
+                <Text style={[styles.restaurantTypeText]}>
+                  CURRENTLY UNSERVICABLE
+                </Text>
+                <FlatList
+                  style={{backgroundColor: Colors.WHITE}}
+                  showsVerticalScrollIndicator={false}
+                  data={(restaurantsData && restaurantsData.data) || []}
+                  renderItem={({item}) => {
+                    return (
+                      <TouchableOpacity
+                        style={[styles.eachTouchableRestaurant]}
+                        onPress={() =>
+                          navigation.navigate('RestaurantDetails', {item})
+                        }>
+                        <RenderClosedItem item={item} />
+                      </TouchableOpacity>
+                    );
+                  }}
+                  ListFooterComponent={() => {
+                    return (
+                      <>
+                        <Text style={[styles.restaurantTypeText]}>
+                          CURRENTLY UNAVAILABLE
+                        </Text>
+                        <FlatList
+                          style={{backgroundColor: Colors.WHITE}}
+                          showsVerticalScrollIndicator={false}
+                          data={(restaurantsData && restaurantsData.data) || []}
+                          renderItem={({item}) => {
+                            return (
+                              <TouchableOpacity
+                                style={[styles.eachTouchableRestaurant]}
+                                onPress={() =>
+                                  navigation.navigate('RestaurantDetails', {
+                                    item,
+                                  })
+                                }>
+                                <RenderClosedItem item={item} />
+                              </TouchableOpacity>
+                            );
+                          }}
+                          ListFooterComponent={() => {
+                            return (
+                              <Text style={{marginTop: responsiveHeight(2.5)}}>
+                                {null}
+                              </Text>
+                            );
+                          }}
+                        />
+                      </>
+                    );
+                  }}
+                />
+              </>
             );
           }}
         />
@@ -134,6 +195,52 @@ const RenderItem = item => {
   );
 };
 
+const RenderClosedItem = item => {
+  // console.log(item.item);
+  const {
+    // getting from reqres api
+    avatar,
+    email,
+    first_name,
+    last_name,
+    id,
+
+    // for real api
+    RestaurantImage = avatar,
+    restaurantName = `${first_name} ${last_name}`,
+    type = 'North Indian, Chinese, Italian, South Indian, Fast Food',
+    address = 'BHU, Lanka, Varanasi',
+    distanceKM = '1.2 kms',
+    maxDiscount = '50% OFF',
+  } = item.item;
+  return (
+    <View style={[styles.eachRestaurant]}>
+      <View style={[styles.restaurantProfile]}>
+        <Image
+          source={{uri: RestaurantImage}}
+          style={[styles.restaurantImage]}
+        />
+        <Text style={[styles.maxDiscount]}>{maxDiscount}</Text>
+        <View style={styles.overlay} />
+      </View>
+
+      <View style={[styles.restaurantDetails]}>
+        <Text numberOfLines={1} style={[styles.restaurantName]}>
+          {restaurantName} Restaurant
+        </Text>
+
+        <Text numberOfLines={1} style={[styles.restaurantType]}>
+          {type}
+        </Text>
+
+        <Text style={[styles.restaurantLocation]}>
+          {address}, {distanceKM}
+        </Text>
+      </View>
+    </View>
+  );
+};
+
 const mapStateToProps = state => ({
   restaurantsData: state.restaurantsReducer.data,
 });
@@ -141,11 +248,23 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {getRestaurants})(Favourites);
 
 const styles = StyleSheet.create({
+  eachTouchableRestaurant: {
+    height: responsiveHeight(20),
+    marginVertical: responsiveHeight(2.5),
+    backgroundColor: Colors.WHITE,
+  },
+  restaurantTypeText: {
+    marginTop: responsiveHeight(2.5),
+    marginHorizontal: 15,
+    fontSize: 13,
+    fontWeight: '700',
+    color: 'dimgrey',
+  },
   eachRestaurant: {
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: Colors.WHITE,
-    height: responsiveHeight(25),
+    alignItems: 'center',
+    height: responsiveHeight(20),
     // borderWidth: 1,
   },
 
@@ -165,9 +284,9 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.25)',
     borderRadius: 10,
-    height: responsiveWidth(33),
+    height: responsiveWidth(31),
     marginVertical: 7,
   },
   maxDiscount: {
