@@ -7,14 +7,10 @@ class Addresses extends Component {
   render() {
     return (
       <>
+        <Header navigation={this.props.navigation} title="MANAGE ADDRESSES" />
         <View>
           <Text>Addresses</Text>
         </View>
-        <Header
-          position={'absolute'}
-          navigation={this.props.navigation}
-          title="MANAGE ADDRESSES"
-        />
       </>
     );
   }

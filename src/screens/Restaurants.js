@@ -38,7 +38,7 @@ class Restaurants extends Component {
     // console.log(restaurantsData);
     return (
       <>
-        <Header navigation={this.props.navigation} title="Home" />
+        <Header navigation={this.props.navigation} title="Home" offers />
         <FlatList
           data={(restaurantsData && restaurantsData.data) || []}
           renderItem={({item}) => {

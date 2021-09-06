@@ -15,6 +15,7 @@ class Header extends Component {
       showRestaurantHeader,
       showOnlyBackIcon,
       position,
+      offers,
     } = this.props;
     let bgColor;
     if (title) bgColor = Colors.WHITE;
@@ -79,22 +80,26 @@ class Header extends Component {
                   </View>
                 ) : (
                   <View style={[styles.restaurantsListHeader]}>
-                    <TouchableOpacity
-                      style={[styles.backToHome]}
-                      onPress={() => navigation.goBack()}>
-                      <Icon name="arrow-left" size={27} color="black" />
+                    <View style={[styles.masterHeaderBox]}>
+                      <TouchableOpacity
+                        style={[styles.backToHome]}
+                        onPress={() => navigation.goBack()}>
+                        <Icon name="arrow-left" size={25} color="black" />
+                      </TouchableOpacity>
                       <Text style={[styles.headerTitle]}>{title}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={[styles.rightHeaderBox]}
-                      onPress={() => navigation.navigate('Offers')}>
-                      <Icon
-                        name="brightness-percent"
-                        size={30}
-                        style={[styles.offersIcon]}
-                      />
-                      <Text style={[styles.offersText]}>Offers</Text>
-                    </TouchableOpacity>
+                    </View>
+                    {offers && (
+                      <TouchableOpacity
+                        style={[styles.rightHeaderBox]}
+                        onPress={() => navigation.navigate('Offers')}>
+                        <Icon
+                          name="brightness-percent"
+                          size={30}
+                          style={[styles.offersIcon]}
+                        />
+                        <Text style={[styles.offersText]}>Offers</Text>
+                      </TouchableOpacity>
+                    )}
                   </View>
                 )}
               </>
@@ -168,6 +173,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginHorizontal: 15,
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   backToHome: {
     flexDirection: 'row',
@@ -192,5 +198,9 @@ const styles = StyleSheet.create({
   offersIcon: {
     color: 'black',
     // borderWidth: 1,
+  },
+  masterHeaderBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
