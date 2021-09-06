@@ -88,7 +88,7 @@ class Auth extends Component {
               component={RestaurantDetails}
             />
             <Stack.Screen
-              options={{headerShown: true}}
+              options={{headerShown: false}}
               name="CurrentLocation"
               component={CurrentLocation}
             />

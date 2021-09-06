@@ -32,9 +32,14 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: Colors.ORANGE,
   },
+  setLocationWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 15,
+  },
   setLocation: {
-    padding: 20,
-    paddingLeft: 50,
+    paddingVertical: 20,
+    paddingLeft: 10,
   },
   setText: {
     color: Colors.ORANGE,

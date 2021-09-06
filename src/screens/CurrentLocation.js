@@ -38,11 +38,19 @@ class CurrentLocation extends Component {
     const {location} = this.props;
     return (
       <SafeAreaView style={[styles.main]}>
-        <TouchableOpacity
-          style={[styles.setLocation]}
-          onPress={() => this.getLocation()}>
-          <Text style={[styles.setText]}>SET DELIVERY LOCATION</Text>
-        </TouchableOpacity>
+        <View style={[styles.setLocationWrap]}>
+          <Icon
+            onPress={() => this.props.navigation.goBack()}
+            name={'arrow-left'}
+            size={25}
+            color={'dimgrey'}
+          />
+          <TouchableOpacity
+            style={[styles.setLocation]}
+            onPress={() => this.getLocation()}>
+            <Text style={[styles.setText]}>SET DELIVERY LOCATION</Text>
+          </TouchableOpacity>
+        </View>
 
         <TouchableOpacity
           style={[styles.getLocation]}
