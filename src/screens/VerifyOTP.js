@@ -3,8 +3,7 @@ import {SafeAreaView, TextInput, Image} from 'react-native';
 import {connect} from 'react-redux';
 import Button from '../components/Button';
 import styles from '../styles/VerifyOTPStyle';
-import {initRegistration} from '../store/actions/registerAction';
-import Login from './Login';
+import {initLogin} from '../store/actions/loginAction';
 
 class VerifyOTP extends Component {
   state = {
@@ -18,33 +17,12 @@ class VerifyOTP extends Component {
     const {
       email = 'eve.holt@reqres.in',
       password = 'pistol',
-      success,
+      user,
     } = this.props;
 
-    if (success) {
-      return <Login />;
+    if (user) {
+      return <>{this.props.navigation.goBack()}</>;
     }
-
-    // if(success){
-    //     setTimeout(() => {
-    //         this.redirectToLogin();
-    //     }, 10000);
-    //     return (
-    //         <View style={[styles.redirect]}>
-    //             <Text>
-    //                 You will be redirected to Login Page in 10 seconds!!
-    //             </Text>
-    //             <View style = {[styles.redirectBox]}>
-    //                 <Text>Otherwise &nbsp;</Text>
-    //                 <TouchableOpacity
-    //                     onPress = {() => this.props.navigation.navigate('Login')}
-    //                 >
-    //                     <Text style = {[styles.redirectLink]}>click here</Text>
-    //                 </TouchableOpacity>
-    //             </View>
-    //         </View>
-    //     );
-    // }
 
     return (
       <SafeAreaView style={[styles.main]}>
@@ -60,7 +38,7 @@ class VerifyOTP extends Component {
         />
         <Button
           title="Verify OTP"
-          onPress={() => this.props.initRegistration({email, password})}
+          onPress={() => this.props.initLogin({email, password})}
         />
       </SafeAreaView>
     );
@@ -70,7 +48,7 @@ class VerifyOTP extends Component {
 // export default Profile;
 
 const mapStateToProps = state => ({
-  success: state.registerReducer.success,
+  user: state.loginReducer.user,
 });
 
-export default connect(mapStateToProps, {initRegistration})(VerifyOTP);
+export default connect(mapStateToProps, {initLogin})(VerifyOTP);
