@@ -39,11 +39,13 @@ class CouponsRestaurants extends Component {
     return (
       <>
         <FlatList
+          style={{backgroundColor: Colors.WHITE}}
           showsVerticalScrollIndicator={false}
           data={(restaurantsData && restaurantsData.data) || []}
           renderItem={({item}) => {
             return (
               <TouchableOpacity
+                style={[styles.eachTouchableRestaurant]}
                 onPress={() =>
                   navigation.navigate('RestaurantDetails', {item})
                 }>
@@ -178,11 +180,15 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {getRestaurants})(CouponsRestaurants);
 
 const styles = StyleSheet.create({
+  eachTouchableRestaurant: {
+    height: responsiveHeight(20),
+    marginVertical: responsiveHeight(2.5),
+  },
   eachRestaurant: {
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: Colors.WHITE,
-    height: responsiveHeight(25),
+    alignItems: 'center',
+    height: responsiveHeight(20),
     // borderWidth: 1,
   },
 
@@ -293,7 +299,7 @@ const styles = StyleSheet.create({
   sortFilter: {},
 
   footerWrap: {
-    height: responsiveWidth(110),
+    height: responsiveWidth(105),
     backgroundColor: Colors.WHITE,
     justifyContent: 'flex-end',
   },

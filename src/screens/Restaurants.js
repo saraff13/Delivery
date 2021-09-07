@@ -40,10 +40,12 @@ class Restaurants extends Component {
       <>
         <Header navigation={this.props.navigation} title="Home" offers />
         <FlatList
+          style={{backgroundColor: 'white'}}
           data={(restaurantsData && restaurantsData.data) || []}
           renderItem={({item}) => {
             return (
               <TouchableOpacity
+                style={[styles.eachTouchableRestaurant]}
                 onPress={() =>
                   this.props.navigation.navigate('RestaurantDetails', {item})
                 }>

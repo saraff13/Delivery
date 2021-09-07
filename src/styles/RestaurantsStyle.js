@@ -48,11 +48,23 @@ const styles = StyleSheet.create({
   },
   sortFilter: {},
 
+  eachTouchableRestaurant: {
+    height: responsiveHeight(20),
+    marginVertical: responsiveHeight(2.5),
+    backgroundColor: Colors.WHITE,
+  },
+  restaurantTypeText: {
+    marginTop: responsiveHeight(2.5),
+    marginHorizontal: 15,
+    fontSize: 13,
+    fontWeight: '700',
+    color: 'dimgrey',
+  },
   eachRestaurant: {
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: Colors.WHITE,
-    height: responsiveHeight(28),
+    alignItems: 'center',
+    height: responsiveHeight(20),
     // borderWidth: 1,
   },
 
@@ -62,6 +74,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: responsiveWidth(6),
     marginRight: responsiveWidth(2),
+    height: responsiveHeight(20),
   },
   restaurantImage: {
     // borderWidth: 1,
@@ -71,9 +84,9 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.25)',
     borderRadius: 10,
-    height: responsiveWidth(33),
+    height: responsiveWidth(31),
     marginVertical: 7,
   },
   maxDiscount: {
@@ -93,6 +106,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     justifyContent: 'center',
     width: responsiveWidth(65),
+    height: responsiveHeight(20),
     marginVertical: responsiveWidth(6.5),
     padding: 5,
   },
@@ -143,8 +157,8 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     padding: 2,
   },
-
   footerImage: {
+    marginTop: responsiveHeight(2.5),
     width: responsiveWidth(100),
     height: responsiveWidth(100),
   },
