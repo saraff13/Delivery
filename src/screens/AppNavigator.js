@@ -4,13 +4,16 @@ import Home from './Home';
 import Profile from './Profile';
 import Search from './Search';
 import Cart from './Cart';
+import Login from '../screens/Login';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {connect} from 'react-redux';
 
 const Icon = MaterialCommunityIcons;
 const Tab = createBottomTabNavigator();
 
-export default class AppNavigator extends Component {
+class AppNavigator extends Component {
   render() {
+    const {user} = this.props;
     return (
       <Tab.Navigator
         initialRouteName="SWIGGY"
@@ -44,8 +47,14 @@ export default class AppNavigator extends Component {
 
         <Tab.Screen name="CART" component={Cart} options={{tabBarBadge: 0}} />
 
-        <Tab.Screen name="ACCOUNT" component={Profile} />
+        <Tab.Screen name="ACCOUNT" component={user ? Profile : Login} />
       </Tab.Navigator>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.loginReducer.user,
+});
+
+export default connect(mapStateToProps)(AppNavigator);

@@ -38,18 +38,6 @@ class Login extends Component {
           onPress={() => this.props.initLogin(this.state)}
           // onPress = {() => console.log(this.state)}
         />
-
-        <Text style={[styles.msgText]}>
-          {success ? null : `Don't have an account? Create one`}
-        </Text>
-        {!success ? (
-          <Button
-            title="Register here"
-            onPress={() => this.props.navigation.navigate('Register')}
-          />
-        ) : (
-          <Text>{null}</Text>
-        )}
       </SafeAreaView>
     );
   }
