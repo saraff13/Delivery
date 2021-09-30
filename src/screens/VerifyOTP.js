@@ -16,21 +16,26 @@ import Header from '../components/Header';
 class VerifyOTP extends Component {
   state = {
     inputRefs: Array(6).fill(createRef()),
+    currOTP: Array(6).fill(''),
   };
+  countOTP(currOTP) {
+    for (let i = 0; i < 6; i++) {
+      if (currOTP[i] == '') return false;
+    }
+    return true;
+  }
   render() {
-    const {inputRefs} = this.state;
+    const {inputRefs, currOTP} = this.state;
     const {
       email = 'eve.holt@reqres.in',
       password = 'pistol',
       user,
-      mobileNo = '9876543210',
     } = this.props;
+    const {mobileNo} = this.props.route.params;
 
     if (user) {
       return <>{this.props.navigation.goBack()}</>;
     }
-
-    let currOTP = Array(6).fill('');
 
     return (
       <SafeAreaView style={[styles.main]}>
@@ -48,15 +53,13 @@ class VerifyOTP extends Component {
                   // onKeyPress={({ nativeEvent }) => {
                   //   nativeEvent.key === 'Backspace' ? //do action : //other action
                   // }}
-
+                  value={currOTP[idx]}
                   key={idx}
                   ref={r => (inputRefs[idx] = r)}
                   maxLength={1}
                   keyboardType={'numeric'}
                   style={[styles.eachOTPDigit, {borderBottomColor: 'grey'}]}
                   onChangeText={value => {
-                    currOTP[idx] = value;
-                    // console.log(currOTP);
                     if (value) {
                       idx == 5
                         ? inputRefs[idx].blur()
@@ -66,6 +69,9 @@ class VerifyOTP extends Component {
                         ? inputRefs[idx].focus()
                         : inputRefs[(idx + 5) % 6].focus();
                     }
+                    let curr = [...currOTP];
+                    curr[idx] = value;
+                    this.setState({currOTP: curr});
                   }}
                 />
               );
@@ -76,10 +82,17 @@ class VerifyOTP extends Component {
             <Text style={[styles.verifyViaCall]}>VERIFY VIA CALL</Text>
           </TouchableOpacity>
 
-          <Button
-            title="SUBMIT OTP"
-            onPress={() => this.props.initLogin({email, password})}
-          />
+          {this.countOTP(currOTP) ? (
+            <Button
+              title="SUBMIT OTP"
+              onPress={() => this.props.initLogin({email, password})}
+            />
+          ) : (
+            <View style={[styles.buttonStyleCopyWrap]}>
+              <Text style={[styles.buttonStyleCopy]}>ENTER OTP</Text>
+              <View style={[styles.overlay]} />
+            </View>
+          )}
         </View>
 
         <Header position="absolute" navigation={this.props.navigation} />

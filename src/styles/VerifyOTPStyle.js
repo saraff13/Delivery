@@ -49,6 +49,23 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'dimgrey',
   },
+
+  buttonStyleCopyWrap: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.ORANGE,
+    padding: 13,
+  },
+  buttonStyleCopy: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: Colors.WHITE,
+    textAlign: 'center',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.25)',
+  },
 });
 
 export default styles;

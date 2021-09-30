@@ -59,6 +59,56 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: 'dimgrey',
   },
+
+  RBSheet: {
+    paddingHorizontal: 15,
+  },
+  RBSheetLoginText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  RBSheetInfoText: {
+    fontSize: 13,
+    color: 'dimgrey',
+  },
+  mobileNoBox: {
+    marginVertical: responsiveHeight(4),
+  },
+  infoText: {
+    fontSize: 10,
+    color: 'dimgrey',
+  },
+  mobileNoWithCode: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomColor: Colors.ORANGE,
+    borderBottomWidth: 2,
+  },
+  countryCode: {
+    fontWeight: '700',
+    fontSize: 15,
+  },
+  mobileNo: {
+    fontWeight: '700',
+    fontSize: 15,
+  },
+
+  buttonStyleCopyWrap: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.ORANGE,
+    padding: 13,
+  },
+  buttonStyleCopy: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: Colors.WHITE,
+    textAlign: 'center',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.25)',
+  },
 });
 
 export default styles;

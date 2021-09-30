@@ -11,17 +11,23 @@ import {connect} from 'react-redux';
 import {initLogin} from '../store/actions/loginAction';
 import Button from '../components/Button';
 import styles from '../styles/LoginStyle';
+import RBSheet from 'react-native-raw-bottom-sheet';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Icon = MaterialCommunityIcons;
 
 class Login extends Component {
   state = {
-    email: 'eve.holt@reqres.in',
-    password: 'cityslicka',
+    mobileNo: '',
   };
+  login() {
+    this.RBSheet.close();
+    this.props.navigation.navigate('VerifyOTP', {
+      mobileNo: this.state.mobileNo,
+    });
+  }
   render() {
-    const {email, password} = this.state;
+    const {mobileNo} = this.state;
 
     return (
       <SafeAreaView style={[styles.main]}>
@@ -34,10 +40,7 @@ class Login extends Component {
           <Text style={[styles.tabFunction]}>
             Login/Create Account quickly to manage orders
           </Text>
-          <Button
-            title="LOGIN"
-            onPress={() => this.props.navigation.navigate('VerifyOTP')}
-          />
+          <Button title="LOGIN" onPress={() => this.RBSheet.open()} />
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('Offers')}
             style={[styles.offersNavigator]}>
@@ -59,6 +62,39 @@ class Login extends Component {
             <Icon name="chevron-right" size={25} color="dimgrey" />
           </TouchableOpacity>
         </View>
+
+        <RBSheet
+          ref={ref => (this.RBSheet = ref)}
+          closeOnDragDown={true}
+          height={450}
+          openDuration={250}
+          customStyles={{container: styles.RBSheet}}>
+          <Text style={[styles.RBSheetLoginText]}>LOGIN</Text>
+          <Text style={[styles.RBSheetInfoText]}>
+            Enter your phone number to proceed
+          </Text>
+
+          <View style={[styles.mobileNoBox]}>
+            <Text style={[styles.infoText]}>10 digit mobile number</Text>
+            <View style={[styles.mobileNoWithCode]}>
+              <Text style={[styles.countryCode]}>+91</Text>
+              <TextInput
+                value={mobileNo}
+                style={[styles.mobileNo]}
+                onChangeText={mobileNo => this.setState({mobileNo})}
+              />
+            </View>
+          </View>
+
+          {mobileNo.length == 10 ? (
+            <Button title={'LOGIN'} onPress={() => this.login()} />
+          ) : (
+            <View style={[styles.buttonStyleCopyWrap]}>
+              <Text style={[styles.buttonStyleCopy]}>ENTER PHONE NUMBER</Text>
+              <View style={[styles.overlay]} />
+            </View>
+          )}
+        </RBSheet>
       </SafeAreaView>
     );
   }
