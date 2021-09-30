@@ -79,6 +79,7 @@ class Login extends Component {
             <View style={[styles.mobileNoWithCode]}>
               <Text style={[styles.countryCode]}>+91</Text>
               <TextInput
+                keyboardType="numeric"
                 value={mobileNo}
                 style={[styles.mobileNo]}
                 onChangeText={mobileNo => this.setState({mobileNo})}
