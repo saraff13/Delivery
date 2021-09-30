@@ -5,38 +5,49 @@ import {responsiveHeight, responsiveWidth} from '../utils/Responsive';
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    alignItems: 'center',
     backgroundColor: Colors.WHITE,
   },
-  inputOTP: {
-    borderWidth: 1,
-    width: responsiveWidth(75),
-    height: responsiveHeight(8),
-    fontSize: 25,
-    margin: responsiveWidth(2),
-    marginTop: responsiveHeight(5),
-    borderRadius: 5,
-    padding: 10,
-    backgroundColor: Colors.WHITE,
+  headerBox: {
+    height: responsiveHeight(20),
+    backgroundColor: 'aliceblue',
+    paddingHorizontal: 15,
   },
-  tagLine: {
-    // borderWidth: 1,
-    width: responsiveWidth(100),
-    height: responsiveHeight(50),
+  headerTitle: {
+    marginTop: responsiveHeight(9),
+    fontWeight: 'bold',
+    fontSize: 20,
   },
-  redirect: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginVertical: responsiveHeight(40),
-    width: responsiveWidth(90),
+  headerMessage: {
+    color: 'dimgrey',
+    marginTop: 5,
   },
-  redirectBox: {},
-  redirectLink: {
-    fontSize: 18,
-    fontWeight: '500',
-    textDecorationLine: 'underline',
-    color: Colors.BLUE,
-    marginTop: 15,
+
+  mainBody: {
+    marginHorizontal: 15,
+    marginTop: responsiveHeight(7),
+  },
+  enterOTPText: {
+    fontSize: 12,
+    color: 'dimgrey',
+  },
+  OTP: {
+    flexDirection: 'row',
+    marginHorizontal: 5,
+    justifyContent: 'space-between',
+    marginBottom: responsiveHeight(5),
+    marginTop: responsiveHeight(2),
+  },
+  eachOTPDigit: {
+    borderBottomWidth: 2,
+    width: responsiveWidth(12),
+    textAlign: 'center',
+    fontSize: 17,
+  },
+  verifyViaCall: {
+    marginVertical: responsiveHeight(2),
+    alignSelf: 'flex-end',
+    fontSize: 14,
+    color: 'dimgrey',
   },
 });
 
