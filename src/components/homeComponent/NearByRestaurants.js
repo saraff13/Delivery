@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import {
   FlatList,
   Image,
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
-  LogBox,
   TouchableOpacity,
   RefreshControl,
+  ScrollView,
 } from 'react-native';
 import * as Colors from '../../utils/Colors';
 import {connect} from 'react-redux';
@@ -20,7 +19,6 @@ const Icon = MaterialCommunityIcons;
 
 class NearByRestaurants extends Component {
   componentDidMount() {
-    LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
     this.fetchData(false);
   }
   fetchData = (isPaginated = true) => {
@@ -37,7 +35,7 @@ class NearByRestaurants extends Component {
   render() {
     const {restaurantsData, navigation} = this.props;
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={(restaurantsData && restaurantsData.data) || []}
@@ -55,7 +53,7 @@ class NearByRestaurants extends Component {
           onEndReached={() => this.fetchData()}
           onEndReachedThreshold={0.01}
         />
-      </SafeAreaView>
+      </ScrollView>
     );
   }
 }
@@ -158,8 +156,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: responsiveWidth(6),
-    marginRight: responsiveWidth(2),
-    // borderWidth: 1,
+    marginHorizontal: responsiveWidth(2),
     height: responsiveHeight(20),
   },
   restaurantImage: {
