@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import {
   FlatList,
   Image,
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
-  LogBox,
   TouchableOpacity,
   RefreshControl,
+  ScrollView,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {getdishes} from '../../store/actions/dishesAction';
@@ -20,7 +19,6 @@ const Icon = MaterialCommunityIcons;
 
 class SandwichesRollsQuickBites extends Component {
   componentDidMount() {
-    LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
     this.fetchData(false);
   }
   fetchData = (isPaginated = true) => {
@@ -37,7 +35,7 @@ class SandwichesRollsQuickBites extends Component {
   render() {
     const {dishesData, showOnlyVegDishes} = this.props;
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={(dishesData && dishesData.data) || []}
@@ -117,7 +115,7 @@ class SandwichesRollsQuickBites extends Component {
           onEndReached={() => this.fetchData()}
           onEndReachedThreshold={0.01}
         />
-      </SafeAreaView>
+      </ScrollView>
     );
   }
 }
@@ -135,6 +133,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     // borderWidth: 1,
     borderColor: 'lightgrey',
+    width: responsiveWidth(92.5),
   },
   leftDishBox: {
     // borderWidth: 1,

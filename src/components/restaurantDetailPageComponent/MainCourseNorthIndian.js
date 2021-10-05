@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Text,
   View,
-  LogBox,
   TouchableOpacity,
   RefreshControl,
 } from 'react-native';
@@ -24,7 +23,6 @@ class MainCourseNorthIndian extends Component {
     nonVeg: false,
   };
   componentDidMount() {
-    LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
     this.fetchData(false);
   }
   fetchData = (isPaginated = true) => {
