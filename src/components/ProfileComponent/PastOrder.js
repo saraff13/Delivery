@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {connect} from 'react-redux';
 import {getdishes} from '../../store/actions/dishesAction';
 import {responsiveHeight, responsiveWidth} from '../../utils/Responsive';
@@ -27,131 +34,134 @@ class PastOrder extends Component {
     const {ordersData} = this.props;
     return (
       <>
-        <FlatList
-          data={(ordersData && ordersData.data) || []}
-          renderItem={({item}) => {
-            const {
-              first_name,
-              last_name,
-              id,
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <FlatList
+            data={(ordersData && ordersData.data) || []}
+            renderItem={({item}) => {
+              const {
+                first_name,
+                last_name,
+                id,
 
-              restaurantName = `${first_name} ${last_name}`,
-              restaurantAddress = 'BHU, Lanka, Varanasi',
-              billTotal = 84 * id,
-              status = 'Delivered',
-              dishOrdered = 'Paneer Butter Masala',
-              quantityOrdered = id,
-              dateTime = 'July 14, 7:37 PM',
-              deliveryRating = '4',
-              foodRating = '5',
-            } = item;
-            let borderBottomWidth = 1.5;
-            if (id == ordersData.total) borderBottomWidth = 0;
-            return (
-              <TouchableOpacity style={[styles.eachOrder, {borderBottomWidth}]}>
-                <View style={[styles.orderHeader]}>
-                  <View style={[styles.orderHeaderTitle]}>
-                    <Text style={[styles.restaurantName]}>
-                      {restaurantName}
+                restaurantName = `${first_name} ${last_name}`,
+                restaurantAddress = 'BHU, Lanka, Varanasi',
+                billTotal = 84 * id,
+                status = 'Delivered',
+                dishOrdered = 'Paneer Butter Masala',
+                quantityOrdered = id,
+                dateTime = 'July 14, 7:37 PM',
+                deliveryRating = '4',
+                foodRating = '5',
+              } = item;
+              let borderBottomWidth = 1.5;
+              if (id == ordersData.total) borderBottomWidth = 0;
+              return (
+                <TouchableOpacity
+                  style={[styles.eachOrder, {borderBottomWidth}]}>
+                  <View style={[styles.orderHeader]}>
+                    <View style={[styles.orderHeaderTitle]}>
+                      <Text style={[styles.restaurantName]}>
+                        {restaurantName}
+                      </Text>
+                      <View style={[styles.orderStatus]}>
+                        <Text style={[styles.orderStatusTitle]}>{status}</Text>
+                        <Icon
+                          name="checkbox-marked-circle"
+                          size={18}
+                          color="green"
+                        />
+                      </View>
+                    </View>
+
+                    <Text style={[styles.restaurantAddress]}>
+                      {restaurantAddress}
                     </Text>
-                    <View style={[styles.orderStatus]}>
-                      <Text style={[styles.orderStatusTitle]}>{status}</Text>
-                      <Icon
-                        name="checkbox-marked-circle"
-                        size={18}
-                        color="green"
-                      />
+                    <View style={[styles.billTotal]}>
+                      <Icon name="currency-inr" size={14} />
+                      <Text style={[styles.billTotalText]}>{billTotal}</Text>
+                      <Icon name="chevron-right" size={20} />
                     </View>
                   </View>
 
-                  <Text style={[styles.restaurantAddress]}>
-                    {restaurantAddress}
+                  <Text numberOfLines={1} style={{color: 'darkgrey'}}>
+                    .........................................................................................................................................................................................................................
                   </Text>
-                  <View style={[styles.billTotal]}>
-                    <Icon name="currency-inr" size={14} />
-                    <Text style={[styles.billTotalText]}>{billTotal}</Text>
-                    <Icon name="chevron-right" size={20} />
-                  </View>
-                </View>
 
-                <Text numberOfLines={1} style={{color: 'darkgrey'}}>
-                  .........................................................................................................................................................................................................................
-                </Text>
-
-                <View style={[styles.orderDetailsBox]}>
-                  <Text style={[styles.dishOrdered]}>
-                    {dishOrdered} x {quantityOrdered}
-                  </Text>
-                  <Text style={[styles.dateTime]}>{dateTime}</Text>
-                  <View style={[styles.rateAndReorder]}>
-                    <TouchableOpacity style={[styles.reorder]}>
-                      <Text style={[styles.reorderText]}>REORDER</Text>
-                    </TouchableOpacity>
-                    {!foodRating ? (
-                      <TouchableOpacity style={[styles.rateOrder]}>
-                        <Text style={[styles.rateOrderText]}>RATE ORDER</Text>
+                  <View style={[styles.orderDetailsBox]}>
+                    <Text style={[styles.dishOrdered]}>
+                      {dishOrdered} x {quantityOrdered}
+                    </Text>
+                    <Text style={[styles.dateTime]}>{dateTime}</Text>
+                    <View style={[styles.rateAndReorder]}>
+                      <TouchableOpacity style={[styles.reorder]}>
+                        <Text style={[styles.reorderText]}>REORDER</Text>
                       </TouchableOpacity>
-                    ) : !deliveryRating ? (
-                      <TouchableOpacity style={[styles.rateOrder]}>
-                        <Text style={[styles.rateOrderText]}>
-                          RATE DELIVERY
-                        </Text>
-                      </TouchableOpacity>
-                    ) : (
-                      <View />
-                    )}
-                  </View>
-
-                  <View style={[styles.orderFooterBox]}>
-                    <View style={[styles.deliveryRatingBox]}>
-                      {deliveryRating ? (
-                        <>
-                          <Text>Your rating for Delivery</Text>
-                          <View style={[styles.ratingDetails]}>
-                            <View style={[styles.rating]}>
-                              <Icon name="star" style={[styles.ratingIcon]} />
-                              <Text style={[styles.ratingText]}>
-                                {deliveryRating}
-                              </Text>
-                            </View>
-                            <Text style={[styles.verticalSeperator]} />
-                            <Text style={[styles.ratingText]}>Loved it</Text>
-                          </View>
-                        </>
+                      {!foodRating ? (
+                        <TouchableOpacity style={[styles.rateOrder]}>
+                          <Text style={[styles.rateOrderText]}>RATE ORDER</Text>
+                        </TouchableOpacity>
+                      ) : !deliveryRating ? (
+                        <TouchableOpacity style={[styles.rateOrder]}>
+                          <Text style={[styles.rateOrderText]}>
+                            RATE DELIVERY
+                          </Text>
+                        </TouchableOpacity>
                       ) : (
-                        <Text style={[styles.notRatedText]}>
-                          You haven't rated this delivery yet
-                        </Text>
+                        <View />
                       )}
                     </View>
 
-                    <View style={[styles.foodRatingBox]}>
-                      {foodRating ? (
-                        <>
-                          <Text>Your Food rating</Text>
-                          <View style={[styles.ratingDetails]}>
-                            <View style={[styles.rating]}>
-                              <Icon name="star" style={[styles.ratingIcon]} />
-                              <Text style={[styles.ratingText]}>
-                                {foodRating}
-                              </Text>
+                    <View style={[styles.orderFooterBox]}>
+                      <View style={[styles.deliveryRatingBox]}>
+                        {deliveryRating ? (
+                          <>
+                            <Text>Your rating for Delivery</Text>
+                            <View style={[styles.ratingDetails]}>
+                              <View style={[styles.rating]}>
+                                <Icon name="star" style={[styles.ratingIcon]} />
+                                <Text style={[styles.ratingText]}>
+                                  {deliveryRating}
+                                </Text>
+                              </View>
+                              <Text style={[styles.verticalSeperator]} />
+                              <Text style={[styles.ratingText]}>Loved it</Text>
                             </View>
-                            <Text style={[styles.verticalSeperator]} />
-                            <Text style={[styles.ratingText]}>Loved it</Text>
-                          </View>
-                        </>
-                      ) : (
-                        <Text style={[styles.notRatedText]}>
-                          You haven't rated this order yet
-                        </Text>
-                      )}
+                          </>
+                        ) : (
+                          <Text style={[styles.notRatedText]}>
+                            You haven't rated this delivery yet
+                          </Text>
+                        )}
+                      </View>
+
+                      <View style={[styles.foodRatingBox]}>
+                        {foodRating ? (
+                          <>
+                            <Text>Your Food rating</Text>
+                            <View style={[styles.ratingDetails]}>
+                              <View style={[styles.rating]}>
+                                <Icon name="star" style={[styles.ratingIcon]} />
+                                <Text style={[styles.ratingText]}>
+                                  {foodRating}
+                                </Text>
+                              </View>
+                              <Text style={[styles.verticalSeperator]} />
+                              <Text style={[styles.ratingText]}>Loved it</Text>
+                            </View>
+                          </>
+                        ) : (
+                          <Text style={[styles.notRatedText]}>
+                            You haven't rated this order yet
+                          </Text>
+                        )}
+                      </View>
                     </View>
                   </View>
-                </View>
-              </TouchableOpacity>
-            );
-          }}
-        />
+                </TouchableOpacity>
+              );
+            }}
+          />
+        </ScrollView>
         {ordersData && ordersData.page < ordersData.total_pages && (
           <TouchableOpacity
             onPress={() => this.fetchData()}
@@ -172,6 +182,7 @@ export default connect(mapStateToProps, {getdishes})(PastOrder);
 
 const styles = StyleSheet.create({
   eachOrder: {
+    width: responsiveWidth(92.5),
     height: responsiveHeight(45),
     paddingBottom: responsiveHeight(2),
     paddingTop: responsiveHeight(3),
