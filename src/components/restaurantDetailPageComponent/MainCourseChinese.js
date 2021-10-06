@@ -7,6 +7,7 @@ import {
   View,
   TouchableOpacity,
   RefreshControl,
+  ScrollView,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {getdishes} from '../../store/actions/dishesAction';
@@ -55,88 +56,90 @@ class MainCourseChinese extends Component {
           />
         </TouchableOpacity>
         {veg && (
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={(dishesData && dishesData.data) || []}
-            renderItem={({item}) => {
-              const {
-                avatar,
-                email,
-                first_name,
-                last_name,
-                id,
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={(dishesData && dishesData.data) || []}
+              renderItem={({item}) => {
+                const {
+                  avatar,
+                  email,
+                  first_name,
+                  last_name,
+                  id,
 
-                dishImage = avatar,
-                dishName = `${first_name} ${last_name}`,
-                price = id * 53,
-                tag,
-                egg = false,
-                chicken = false,
-              } = item;
-              let iconColor = Colors.GREEN;
-              if (egg) iconColor = 'orange';
-              else if (chicken) iconColor = 'brown';
-              let height = responsiveHeight(17);
-              if (dishImage) height = responsiveHeight(26);
-              if (showOnlyVegDishes && (egg || chicken)) return null;
-              return (
-                <View
-                  style={[
-                    styles.eachDishBox,
-                    {height, borderTopWidth: id === 1 ? 0 : 0.5},
-                  ]}>
-                  <View style={[styles.leftDishBox]}>
-                    <View style={[styles.vegAndTagBox]}>
-                      <View
-                        style={[
-                          styles.customVegIcon,
-                          {borderColor: iconColor},
-                        ]}>
+                  dishImage = avatar,
+                  dishName = `${first_name} ${last_name}`,
+                  price = id * 53,
+                  tag,
+                  egg = false,
+                  chicken = false,
+                } = item;
+                let iconColor = Colors.GREEN;
+                if (egg) iconColor = 'orange';
+                else if (chicken) iconColor = 'brown';
+                let height = responsiveHeight(17);
+                if (dishImage) height = responsiveHeight(26);
+                if (showOnlyVegDishes && (egg || chicken)) return null;
+                return (
+                  <View
+                    style={[
+                      styles.eachDishBox,
+                      {height, borderTopWidth: id === 1 ? 0 : 0.5},
+                    ]}>
+                    <View style={[styles.leftDishBox]}>
+                      <View style={[styles.vegAndTagBox]}>
                         <View
                           style={[
-                            styles.customVegIconCircle,
-                            {backgroundColor: iconColor},
-                          ]}
-                        />
+                            styles.customVegIcon,
+                            {borderColor: iconColor},
+                          ]}>
+                          <View
+                            style={[
+                              styles.customVegIconCircle,
+                              {backgroundColor: iconColor},
+                            ]}
+                          />
+                        </View>
+                        {tag && (
+                          <>
+                            <Icon name="star" style={[styles.tagStarIcon]} />
+                            <Text style={[styles.tagText]}>{tag}</Text>
+                          </>
+                        )}
                       </View>
-                      {tag && (
-                        <>
-                          <Icon name="star" style={[styles.tagStarIcon]} />
-                          <Text style={[styles.tagText]}>{tag}</Text>
-                        </>
-                      )}
+                      <Text style={[styles.dishName]}>{dishName}</Text>
+                      <Text style={[styles.price]}>
+                        <Icon name="currency-inr" size={16} />
+                        {price}
+                      </Text>
                     </View>
-                    <Text style={[styles.dishName]}>{dishName}</Text>
-                    <Text style={[styles.price]}>
-                      <Icon name="currency-inr" size={16} />
-                      {price}
-                    </Text>
-                  </View>
 
-                  {dishImage ? (
-                    <View style={[styles.rightDishBoxWithImage]}>
-                      <Image
-                        source={{uri: dishImage}}
-                        style={[styles.dishImage]}
-                      />
-                      <TouchableOpacity style={[styles.addBox]}>
-                        <Text style={[styles.textAdd]}>ADD</Text>
-                      </TouchableOpacity>
-                    </View>
-                  ) : (
-                    <View style={[styles.rightDishBoxNoImage]}>
-                      <TouchableOpacity style={[styles.addBoxNoImage]}>
-                        <Text style={[styles.textAddNoImage]}>ADD</Text>
-                      </TouchableOpacity>
-                    </View>
-                  )}
-                </View>
-              );
-            }}
-            refreshControl={<RefreshControl refreshing={false} />}
-            onEndReached={() => this.fetchData()}
-            onEndReachedThreshold={0.01}
-          />
+                    {dishImage ? (
+                      <View style={[styles.rightDishBoxWithImage]}>
+                        <Image
+                          source={{uri: dishImage}}
+                          style={[styles.dishImage]}
+                        />
+                        <TouchableOpacity style={[styles.addBox]}>
+                          <Text style={[styles.textAdd]}>ADD</Text>
+                        </TouchableOpacity>
+                      </View>
+                    ) : (
+                      <View style={[styles.rightDishBoxNoImage]}>
+                        <TouchableOpacity style={[styles.addBoxNoImage]}>
+                          <Text style={[styles.textAddNoImage]}>ADD</Text>
+                        </TouchableOpacity>
+                      </View>
+                    )}
+                  </View>
+                );
+              }}
+              refreshControl={<RefreshControl refreshing={false} />}
+              onEndReached={() => this.fetchData()}
+              onEndReachedThreshold={0.01}
+            />
+          </ScrollView>
         )}
 
         {!showOnlyVegDishes && (
@@ -157,88 +160,93 @@ class MainCourseChinese extends Component {
               />
             </TouchableOpacity>
             {nonVeg && (
-              <FlatList
-                showsVerticalScrollIndicator={false}
-                data={(dishesData && dishesData.data) || []}
-                renderItem={({item}) => {
-                  const {
-                    avatar,
-                    email,
-                    first_name,
-                    last_name,
-                    id,
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                <FlatList
+                  showsVerticalScrollIndicator={false}
+                  data={(dishesData && dishesData.data) || []}
+                  renderItem={({item}) => {
+                    const {
+                      avatar,
+                      email,
+                      first_name,
+                      last_name,
+                      id,
 
-                    dishImage = avatar,
-                    dishName = `${first_name} ${last_name}`,
-                    price = id * 43,
-                    tag,
-                    egg = true,
-                    chicken = false,
-                  } = item;
-                  let iconColor = Colors.GREEN;
-                  if (egg) iconColor = 'orange';
-                  else if (chicken) iconColor = 'brown';
-                  let height = responsiveHeight(17);
-                  if (dishImage) height = responsiveHeight(26);
-                  if (showOnlyVegDishes && (egg || chicken)) return null;
-                  return (
-                    <View
-                      style={[
-                        styles.eachDishBox,
-                        {height, borderTopWidth: id === 1 ? 0 : 0.5},
-                      ]}>
-                      <View style={[styles.leftDishBox]}>
-                        <View style={[styles.vegAndTagBox]}>
-                          <View
-                            style={[
-                              styles.customVegIcon,
-                              {borderColor: iconColor},
-                            ]}>
+                      dishImage = avatar,
+                      dishName = `${first_name} ${last_name}`,
+                      price = id * 43,
+                      tag,
+                      egg = true,
+                      chicken = false,
+                    } = item;
+                    let iconColor = Colors.GREEN;
+                    if (egg) iconColor = 'orange';
+                    else if (chicken) iconColor = 'brown';
+                    let height = responsiveHeight(17);
+                    if (dishImage) height = responsiveHeight(26);
+                    if (showOnlyVegDishes && (egg || chicken)) return null;
+                    return (
+                      <View
+                        style={[
+                          styles.eachDishBox,
+                          {height, borderTopWidth: id === 1 ? 0 : 0.5},
+                        ]}>
+                        <View style={[styles.leftDishBox]}>
+                          <View style={[styles.vegAndTagBox]}>
                             <View
                               style={[
-                                styles.customVegIconCircle,
-                                {backgroundColor: iconColor},
-                              ]}
-                            />
+                                styles.customVegIcon,
+                                {borderColor: iconColor},
+                              ]}>
+                              <View
+                                style={[
+                                  styles.customVegIconCircle,
+                                  {backgroundColor: iconColor},
+                                ]}
+                              />
+                            </View>
+                            {tag && (
+                              <>
+                                <Icon
+                                  name="star"
+                                  style={[styles.tagStarIcon]}
+                                />
+                                <Text style={[styles.tagText]}>{tag}</Text>
+                              </>
+                            )}
                           </View>
-                          {tag && (
-                            <>
-                              <Icon name="star" style={[styles.tagStarIcon]} />
-                              <Text style={[styles.tagText]}>{tag}</Text>
-                            </>
-                          )}
+                          <Text style={[styles.dishName]}>{dishName}</Text>
+                          <Text style={[styles.price]}>
+                            <Icon name="currency-inr" size={16} />
+                            {price}
+                          </Text>
                         </View>
-                        <Text style={[styles.dishName]}>{dishName}</Text>
-                        <Text style={[styles.price]}>
-                          <Icon name="currency-inr" size={16} />
-                          {price}
-                        </Text>
-                      </View>
 
-                      {dishImage ? (
-                        <View style={[styles.rightDishBoxWithImage]}>
-                          <Image
-                            source={{uri: dishImage}}
-                            style={[styles.dishImage]}
-                          />
-                          <TouchableOpacity style={[styles.addBox]}>
-                            <Text style={[styles.textAdd]}>ADD</Text>
-                          </TouchableOpacity>
-                        </View>
-                      ) : (
-                        <View style={[styles.rightDishBoxNoImage]}>
-                          <TouchableOpacity style={[styles.addBoxNoImage]}>
-                            <Text style={[styles.textAddNoImage]}>ADD</Text>
-                          </TouchableOpacity>
-                        </View>
-                      )}
-                    </View>
-                  );
-                }}
-                refreshControl={<RefreshControl refreshing={false} />}
-                onEndReached={() => this.fetchData()}
-                onEndReachedThreshold={0.01}
-              />
+                        {dishImage ? (
+                          <View style={[styles.rightDishBoxWithImage]}>
+                            <Image
+                              source={{uri: dishImage}}
+                              style={[styles.dishImage]}
+                            />
+                            <TouchableOpacity style={[styles.addBox]}>
+                              <Text style={[styles.textAdd]}>ADD</Text>
+                            </TouchableOpacity>
+                          </View>
+                        ) : (
+                          <View style={[styles.rightDishBoxNoImage]}>
+                            <TouchableOpacity style={[styles.addBoxNoImage]}>
+                              <Text style={[styles.textAddNoImage]}>ADD</Text>
+                            </TouchableOpacity>
+                          </View>
+                        )}
+                      </View>
+                    );
+                  }}
+                  refreshControl={<RefreshControl refreshing={false} />}
+                  onEndReached={() => this.fetchData()}
+                  onEndReachedThreshold={0.01}
+                />
+              </ScrollView>
             )}
           </>
         )}
@@ -277,6 +285,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     // borderWidth: 1,
     borderColor: 'lightgrey',
+    width: responsiveWidth(92.5),
   },
   leftDishBox: {
     // borderWidth: 1,
