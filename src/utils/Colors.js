@@ -6,3 +6,4 @@ export const RED = 'red';
 export const GREY = 'darkgrey';
 export const SILVER = 'silver';
 export const BLUE = 'blue';
+export const YELLOW = 'yellow';
