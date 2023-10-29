@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  PermissionsAndroid,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {connect} from 'react-redux';
 import styles from '../styles/CurrentLocationStyle';
 import Geolocation from 'react-native-geolocation-service';
@@ -14,25 +20,26 @@ class CurrentLocation extends Component {
     longitude: '',
   };
 
-  getLocation = () => {
-    Geolocation.getCurrentPosition(
-      position => {
-        // console.log(position.coords);
-        this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        });
-        // console.log(this.state);
-      },
-      error => {
-        console.log(error.code, error.message);
-      },
-      // {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+  getLocation = async () => {
+    const permission = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
+    if (permission === PermissionsAndroid.RESULTS.GRANTED) {
+      Geolocation.getCurrentPosition(
+        position => {
+          this.setState({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        error => {
+          console.log(error.code, error.message);
+        },
+        // {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      );
 
-    this.props.fetchLocationName(this.state);
-
-    console.log(this.state);
+      this.props.fetchLocationName(this.state);
+    }
   };
   render() {
     const {location} = this.props;
@@ -62,7 +69,7 @@ class CurrentLocation extends Component {
           </View>
         </TouchableOpacity>
 
-        <Text style={{backgroundColor: 'rgba(0,0,0,0.08)'}}></Text>
+        <Text style={{backgroundColor: 'rgba(0,0,0,0.08)'}} />
 
         <View style={[styles.savedAddresses]}>
           <Text style={[styles.headerTitle]}>SAVED ADDRESSES</Text>
