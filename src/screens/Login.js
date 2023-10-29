@@ -83,11 +83,12 @@ class Login extends Component {
                 value={mobileNo}
                 style={[styles.mobileNo]}
                 onChangeText={mobileNo => this.setState({mobileNo})}
+                maxLength={10}
               />
             </View>
           </View>
 
-          {mobileNo.length == 10 ? (
+          {mobileNo.length === 10 ? (
             <Button title={'LOGIN'} onPress={() => this.login()} />
           ) : (
             <View style={[styles.buttonStyleCopyWrap]}>

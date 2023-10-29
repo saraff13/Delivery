@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ScrollView, Switch, Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, Switch, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import styles from './RestaurantDetailsStyle';
 import Header from '../../components/Header';

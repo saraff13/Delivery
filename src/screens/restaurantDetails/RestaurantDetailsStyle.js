@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   reviewDetails: {
     // borderWidth: 1,
     alignItems: 'center',
-    width: responsiveWidth(25),
+    width: responsiveWidth(30),
   },
   review: {
     fontWeight: 'bold',
